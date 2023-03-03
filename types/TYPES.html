@@ -1,0 +1,341 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>TYPES - Rust-All-In-One</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../rust/RUST.html"><strong aria-hidden="true">1.</strong> RUST</a></li><li class="chapter-item expanded "><a href="../TEMPLATE.html"><strong aria-hidden="true">2.</strong> TEMPLATE</a></li><li class="chapter-item expanded "><a href="../shared/SHARED.html"><strong aria-hidden="true">3.</strong> SHARED</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../borrowchecker/BORROWCHECKER.html"><strong aria-hidden="true">4.</strong> BORROWCHECKER</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../borrowchecker/semantic/SEMANTIC.html"><strong aria-hidden="true">4.1.</strong> SEMANTIC</a></li><li class="chapter-item expanded "><a href="../borrowchecker/lifetime/LIFETIME.html"><strong aria-hidden="true">4.2.</strong> LIFETIME</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../borrowchecker/lifetime/static/LIFETIME_STATIC.html"><strong aria-hidden="true">4.2.1.</strong> STATIC</a></li><li class="chapter-item expanded "><a href="../borrowchecker/lifetime/elision/LIFETIME_ELISION.html"><strong aria-hidden="true">4.2.2.</strong> ELISION</a></li><li class="chapter-item expanded "><a href="../borrowchecker/lifetime/dangling/LIFETIME_DANGLING.html"><strong aria-hidden="true">4.2.3.</strong> DANGLING</a></li><li class="chapter-item expanded "><a href="../borrowchecker/lifetime/generic/LIFETIME_GENERIC.html"><strong aria-hidden="true">4.2.4.</strong> GENERIC</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../benchmark/BENCHMARK.html"><strong aria-hidden="true">5.</strong> BENCHMARK</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../cpu/CPU.html"><strong aria-hidden="true">6.</strong> CPU</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../pointers/POINTERS.html"><strong aria-hidden="true">7.</strong> POINTERS</a></li><li class="chapter-item expanded "><a href="../pointers/smartpointer/SMARTPOINTER.html"><strong aria-hidden="true">8.</strong> SMARTPOINTER</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../pointers/smartpointer/compiletime/shared_owner/rc/RC.html"><strong aria-hidden="true">8.1.</strong> RC</a></li><li class="chapter-item expanded "><a href="../pointers/smartpointer/compiletime/box/BOX.html"><strong aria-hidden="true">8.2.</strong> BOX</a></li><li class="chapter-item expanded "><a href="../pointers/smartpointer/runtime/shared_mutability/ref-cell/REF_CELL.html"><strong aria-hidden="true">8.3.</strong> REF_CELL</a></li><li class="chapter-item expanded "><a href="../pointers/smartpointer/ops/OPS.html"><strong aria-hidden="true">8.4.</strong> OPS</a></li><li class="chapter-item expanded "><a href="../pointers/smartpointer/compiletime/cow/COW.html"><strong aria-hidden="true">8.5.</strong> COW</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../process/PROCESS.html"><strong aria-hidden="true">9.</strong> PROCESS</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../collection/COLLECTION.html"><strong aria-hidden="true">10.</strong> COLLECTION</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../collection/hashmap/HASHMAP.html"><strong aria-hidden="true">10.1.</strong> HASHMAP</a></li><li class="chapter-item expanded "><a href="../collection/slice/SLICE.html"><strong aria-hidden="true">10.2.</strong> SLICE</a></li><li class="chapter-item expanded "><a href="../collection/vec/VECTOR.html"><strong aria-hidden="true">10.3.</strong> VECTOR</a></li><li class="chapter-item expanded "><a href="../pointers/smartpointer/compiletime/shared_owner/rc/linkedlist/LINKEDLIST.html"><strong aria-hidden="true">10.4.</strong> LINKEDLIST</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../commandline/COMMANDLINE.html"><strong aria-hidden="true">11.</strong> COMMANDLINE</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../data/DATA.html"><strong aria-hidden="true">12.</strong> DATA</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../data/operator/OPERATOR.html"><strong aria-hidden="true">12.1.</strong> OPERATOR</a></li><li class="chapter-item expanded "><a href="../data/convert/CONVERT.html"><strong aria-hidden="true">12.2.</strong> CONVERT</a></li><li class="chapter-item expanded "><a href="../data/io/IO.html"><strong aria-hidden="true">12.3.</strong> IO</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../data/io/file/FILE.html"><strong aria-hidden="true">12.3.1.</strong> FILE</a></li></ol></li><li class="chapter-item expanded "><a href="../data/regex/REGEX.html"><strong aria-hidden="true">12.4.</strong> REGEX</a></li><li class="chapter-item expanded "><a href="../data/arithmetic/ARITHMETIC.html"><strong aria-hidden="true">12.5.</strong> ARITHMETIC</a></li><li class="chapter-item expanded "><a href="../data/serde/SERDE.html"><strong aria-hidden="true">12.6.</strong> SERDE</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../duplication/Duplication.html"><strong aria-hidden="true">13.</strong> Duplication</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../duplication/copy-clone/COPY-CLONE.html"><strong aria-hidden="true">13.1.</strong> COPY-CLONE</a></li></ol></li><li class="chapter-item expanded "><a href="../pointers/smartpointer/compiletime/shared_owner/rc/RC.html"><strong aria-hidden="true">14.</strong> RC</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../errorhandling/ERROR_HANDLING.html"><strong aria-hidden="true">15.</strong> ERROR-HANDLING</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../errorhandling/non-recoverable/ERROR_NONRECOVERABLE.html"><strong aria-hidden="true">15.1.</strong> ERROR_NONRECOVERABLE</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../feature/FEATURE.html"><strong aria-hidden="true">16.</strong> FEATURE</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../flowcontrol/FLOWCONTROL.html"><strong aria-hidden="true">17.</strong> FLOWCONTROL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../flowcontrol/for/FOR.html"><strong aria-hidden="true">17.1.</strong> FOR</a></li><li class="chapter-item expanded "><a href="../flowcontrol/loop/LOOP.html"><strong aria-hidden="true">17.2.</strong> LOOP</a></li><li class="chapter-item expanded "><a href="../flowcontrol/while/WHILE.html"><strong aria-hidden="true">17.3.</strong> WHILE</a></li><li class="chapter-item expanded "><a href="../flowcontrol/match/MATCH.html"><strong aria-hidden="true">17.4.</strong> MATCH</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../functional-programming/FUNC-PROG.html"><strong aria-hidden="true">18.</strong> FUNCTION PROGRAMMING</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../functional-programming/closure/CLOSURE.html"><strong aria-hidden="true">18.1.</strong> CLOSURE</a></li><li class="chapter-item expanded "><a href="../functional-programming/function/FUNCTION.html"><strong aria-hidden="true">18.2.</strong> FUNCTION</a></li><li class="chapter-item expanded "><a href="../functional-programming/lazy/LAZY.html"><strong aria-hidden="true">18.3.</strong> LAZY</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../libc/LIBC.html"><strong aria-hidden="true">19.</strong> LIBC</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../network/NETWORK.html"><strong aria-hidden="true">20.</strong> NETWORK</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../oop/OOP.html"><strong aria-hidden="true">21.</strong> OOP</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../oop/trait/TRAIT.html"><strong aria-hidden="true">21.1.</strong> TRAIT</a></li></ol></li><li class="chapter-item expanded "><a href="../oop/design_patterns/DESIGN_PATTERN.html"><strong aria-hidden="true">22.</strong> DESIGN_PATTERN</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../oop/design_patterns/behavioral/state-pattern/STATE_PATTERN.html"><strong aria-hidden="true">22.1.</strong> STATE_PATTERN</a></li><li class="chapter-item expanded "><a href="../oop/design_patterns/behavioral/BEHAVIOARAL.html"><strong aria-hidden="true">22.2.</strong> BEHAVIOARAL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../oop/design_patterns/behavioral/lpxxn/lpxxn-behavioral.html"><strong aria-hidden="true">22.2.1.</strong> LPXXN</a></li><li class="chapter-item expanded "><a href="../oop/design_patterns/behavioral/process/PROCESS.html"><strong aria-hidden="true">22.2.2.</strong> PROCESS</a></li></ol></li><li class="chapter-item expanded "><a href="../oop/design_patterns/creational/CREATIONAL.html"><strong aria-hidden="true">22.3.</strong> CREATIONAL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../oop/design_patterns/creational/lpxxn/lpxxn-creational.html"><strong aria-hidden="true">22.3.1.</strong> LPXXN</a></li></ol></li><li class="chapter-item expanded "><a href="../oop/design_patterns/structural/STRUCTURAL.html"><strong aria-hidden="true">22.4.</strong> STRUCTRUAL</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../oop/design_patterns/structural/lpxxn/lpxxn-structural.html"><strong aria-hidden="true">22.4.1.</strong> LPXXN</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../trait/TRAIT.html"><strong aria-hidden="true">23.</strong> TRAIT</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../trait/associate-type-or-trait/ASSOCIATE.html"><strong aria-hidden="true">23.1.</strong> ASSOCIATE</a></li><li class="chapter-item expanded "><a href="../trait/inheritance/INHERITANCE.html"><strong aria-hidden="true">23.2.</strong> INHERITANCE</a></li><li class="chapter-item expanded "><a href="../trait/shared-behavior/SHARED_BEHAVIOR.html"><strong aria-hidden="true">23.3.</strong> SHARED_BEHAVIOR</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../trait/shared-behavior/safe-object/SAFEOBJECT.html"><strong aria-hidden="true">23.3.1.</strong> SAFE OBJECT</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../trait/shared-behavior/safe-object/dispatchable/TRAITOBJECT.html"><strong aria-hidden="true">23.3.1.1.</strong> TRAITOBJECT</a></li></ol></li><li class="chapter-item expanded "><a href="../trait/shared-behavior/non-objectsafe//NONOBJECTSAFE.html"><strong aria-hidden="true">23.3.2.</strong> NON_OBJECTSAFE</a></li><li class="chapter-item expanded "><a href="../trait/shared-behavior/builtin-trait/SB_TRAIT_BUILTIN.html"><strong aria-hidden="true">23.3.3.</strong> SB_TRAIT_BUILTIN</a></li><li class="chapter-item expanded "><a href="../trait/shared-behavior/aggregator/SB_AGGRIGATOR.html"><strong aria-hidden="true">23.3.4.</strong> SB_AGGRIGATOR</a></li></ol></li><li class="chapter-item expanded "><a href="../trait/built-in/BUILT_IN.html"><strong aria-hidden="true">23.4.</strong> BUILT_IN</a></li><li class="chapter-item expanded "><a href="../trait/shared-behavior/trait-bound/TRAIT_BOUND.html"><strong aria-hidden="true">23.5.</strong> TRAIT BOUND</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../types/TYPES.html" class="active"><strong aria-hidden="true">24.</strong> TYPES</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../types/num/NUM.html"><strong aria-hidden="true">24.1.</strong> NUM</a></li><li class="chapter-item expanded "><a href="../types/generic/GENERIC.html"><strong aria-hidden="true">24.2.</strong> GENERIC</a></li><li class="chapter-item expanded "><a href="../types/primitive/PRIMITIVE.html"><strong aria-hidden="true">24.3.</strong> PRIMITIVE</a></li><li class="chapter-item expanded "><a href="../types/return/RETURN.html"><strong aria-hidden="true">24.4.</strong> RETURN</a></li><li class="chapter-item expanded "><a href="../types/string/STRING.html"><strong aria-hidden="true">24.5.</strong> STRING</a></li><li class="chapter-item expanded "><a href="../types/static/STATIC.html"><strong aria-hidden="true">24.6.</strong> STATIC</a></li><li class="chapter-item expanded "><a href="../types/wrapper/WRAPPER.html"><strong aria-hidden="true">24.7.</strong> WRAPPER</a></li><li class="chapter-item expanded "><a href="../types/union/UNION.html"><strong aria-hidden="true">24.8.</strong> UNION</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../thread/THREAD.html"><strong aria-hidden="true">25.</strong> THREAD</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../thread/race/RACE.html"><strong aria-hidden="true">25.1.</strong> RACE</a></li><li class="chapter-item expanded "><a href="../thread/rayon/RAYON.html"><strong aria-hidden="true">25.2.</strong> RAYON</a></li><li class="chapter-item expanded "><a href="../thread/sync/ATOMIC.html"><strong aria-hidden="true">25.3.</strong> Sync-Atomic-Mutex</a></li><li class="chapter-item expanded "><a href="../thread/mpsc/MPSC.html"><strong aria-hidden="true">25.4.</strong> MPSC</a></li><li class="chapter-item expanded "><a href="../thread/time/THREAD-TIME.html"><strong aria-hidden="true">25.5.</strong> THREAD-TIME</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../time/TIME.html"><strong aria-hidden="true">26.</strong> TIME</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../unsafe/UNSAFE.html"><strong aria-hidden="true">27.</strong> UNSAFE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../unsafe/extern-ffi/EXTERN-FFI.html"><strong aria-hidden="true">27.1.</strong> EXTERN-FFI</a></li><li class="chapter-item expanded "><a href="../unsafe/safe-abstraction/SAFE_ABSTRACTION.html"><strong aria-hidden="true">27.2.</strong> SAFE_ABSTRACTION</a></li><li class="chapter-item expanded "><a href="../unsafe/safe-static-mut/SAFE_STATIC_MUT.html"><strong aria-hidden="true">27.3.</strong> SAFE_STATIC_MUT</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../macro/MACRO.html"><strong aria-hidden="true">28.</strong> MACRO</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../module/MODULE.html"><strong aria-hidden="true">29.</strong> MOUDULE</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../memory/MEMORY.html"><strong aria-hidden="true">30.</strong> MEMORY</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../memory/allocator/ALLOCATOR.html"><strong aria-hidden="true">30.1.</strong> ALLOCATOR</a></li><li class="chapter-item expanded "><a href="../memory/piston/PISTON.html"><strong aria-hidden="true">30.2.</strong> PISTON</a></li><li class="spacer"></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust-All-In-One</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>[[PRIMITIVE]]</p>
+<p>[[STRING]]</p>
+<p>[[NUM]]</p>
+<p>[[GENERIC]]</p>
+<p>[[RETURN]]</p>
+<p>[[STRUCT]]</p>
+<p>[[ENUM]]</p>
+<p>[[RHS]]</p>
+<p>[[STATIC]]</p>
+<p>[[WRAPPER]]</p>
+<h2 id="union"><a class="header" href="#union">[[UNION]]</a></h2>
+<h2 id="unit-type"><a class="header" href="#unit-type">Unit Type</a></h2>
+<pre><pre class="playground"><code class="language-rust edition2021">fn main() {
+    let x: () = ();
+    let y: () = println!(&quot;Hello, world!&quot;);
+    assert_eq!(x, y);
+    println!(&quot;All units are the same!&quot;);
+}
+</code></pre></pre>
+<h2 id="class-vs-struct"><a class="header" href="#class-vs-struct">Class Vs Struct</a></h2>
+<p><img src="../rust/assets/images/class.JPG" alt="Class Vs Struct" /></p>
+<blockquote>
+<p>Briefly, functions are regarded as <strong>pure</strong>, meaning their behavior is determined solely by their arguments. Methods are inherently <strong>impure</strong>, given that one of their arguments is effectively a side effect.
+objects sometimes implement static methods, which do not include implicit arguments</p>
+</blockquote>
+<h2 id="const-vs-static-vs-let"><a class="header" href="#const-vs-static-vs-let">Const Vs Static Vs Let</a></h2>
+<blockquote>
+<p><strong>Constants</strong> represent concrete values and <strong>don't have any memory location</strong> associated with them. They are inlined wherever they are used.</p>
+</blockquote>
+<blockquote>
+<p><strong>Static</strong> <strong>a fixed memory location</strong> and exist as a single instance in the whole program. These can also be made <strong>mutable</strong>.</p>
+</blockquote>
+<blockquote>
+<p>It can be confusing whether or not you should use a constant item or a static item. Constants should, in general, be preferred over statics unless one of the following are true:</p>
+</blockquote>
+<ul>
+<li>Large amounts of data are being stored</li>
+<li>The single-address property of statics is required.</li>
+<li>Interior mutability is required.
+&gt;&gt; Another difference between constants and static variables is that static variables can be mutable.
+&gt;&gt; Accessing and modifying mutable static variables is unsafe</li>
+</ul>
+<blockquote>
+<p>If variables defined with let are immutable, then why does Rust include a const keyword? The short answer is that data behind let can change. Rust allows types to have an apparently contradictory property of interior mutability.</p>
+</blockquote>
+<blockquote>
+<p>Some types such as std:sync::Arc and std:rc::[[Rc]] present an immutable façade, yet change their internal state over time. In the case of those two types, these increment a reference count as references to those are made and decrement that count when those references expire.</p>
+</blockquote>
+<blockquote>
+<p>At the level of the compiler, let relates more to aliasing than immutability. Aliasing in [[compiler]] terminology refers to having multiple references to the same location in memory at the same time. Read-only references (borrows) to variables declared with let can alias the same data. Read-write references (mutable borrows) are guaranteed to never alias data.</p>
+</blockquote>
+<blockquote>
+<p>Generally, if you don't need to rely on #singleton property of statics and its predefined memory location and just want a concrete value, you should prefer using consts. They allow the compiler to make better optimizations and are more straightforward to use.</p>
+</blockquote>
+<h2 id="const-in-trait-enum-struct"><a class="header" href="#const-in-trait-enum-struct">Const in Trait, Enum, Struct</a></h2>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>trait Circular {
+    const PI: f64 = 3.14;
+    //...
+}
+<span class="boring">}
+</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum Item {
+    One,
+    Two
+}
+
+struct Food {
+    Cake,
+    Chocolate
+}
+
+impl Item {
+    const DEFAULT_COUNT: u32 = 34;
+}
+impl Food {
+    const FAVORITE_FOOD: &amp;str = &quot;Cake&quot;;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="include_consequences"><a class="header" href="#include_consequences">Include_Consequences</a></h2>
+<blockquote>
+<p>Master Rust says:
+Vec=&gt;String=&gt;&amp;str=&gt;slice=&gt;[u8]</p>
+</blockquote>
+<h2 id="type-inference"><a class="header" href="#type-inference">Type inference</a></h2>
+<p>a component of the compiler called the type checker uses the #Hindley_Milner <strong>type inference algorithm to decide</strong> what the types of local variables should be. It is a set of rules about establishing types of expressions based on their usage. As such, it can infer types based on the environment and the way a type is used. One such example is the following:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut v = vec![];
+v.push(2);    // can figure type of `v` now to be of Vec&lt;i32&gt;
+<span class="boring">}
+</span></code></pre></pre>
+<p>With only the first line initializing the vector, Rust's type checker is unsure of what the type for v should be.
+It's only when it reaches the next line, v.push(2), that <strong>it knows that v is of the type, Vec<i32></strong>. Now the type of v is frozen to Vec<i32>.</p>
+<blockquote>
+<p>But sometimes, the type checker cannot figure out types of variables in complex situations</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let bytes = file.bytes().collect();//compiler error means Hindley_Milner could not detect type
+let bytes: Vec&lt;Result&lt;u8, _&gt;&gt; = file.bytes().collect(); // we need to help algo to detect type
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="type-aliases"><a class="header" href="#type-aliases">Type Aliases</a></h2>
+<p>if you have an API from your crate where you return a Result type, wrapping a complex object as depicted below:</p>
+<pre><pre class="playground"><code class="language-rust no_run edition2021">pub struct ParsedPayload&lt;T&gt; {
+    inner: T
+}
+
+pub struct ParseError&lt;E&gt; {
+    inner: E
+}
+
+pub fn parse_payload&lt;T, E&gt;(stream: &amp;[u8]) -&gt; Result&lt;ParsedPayload&lt;T&gt;, ParseError&lt;E&gt;&gt; {
+    unimplemented!();
+}
+
+fn main() {
+    // todo
+}
+</code></pre></pre>
+<blockquote>
+<p>aliasing
+Provides a thin wrapper over Rc&lt;RefCell<T>&gt; for higher ergonomics, as managing nested types gets annoying.</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust no_run edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// added a type alias
+type ParserResult&lt;T, E&gt; = Result&lt;ParsedPayload&lt;T&gt;, ParseError&lt;E&gt;&gt;;
+
+// and modify parse_payload function as:
+pub fn parse_payload&lt;T, E&gt;(stream: &amp;[u8]) -&gt; ParserResult&lt;T, E&gt; {
+    unimplemented!();
+}
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>another example</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust no_run edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>type SomethingComplex&lt;T&gt; = Vec&lt;Result&lt;Option&lt;T&gt;&gt;&gt;;
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="concept-nan"><a class="header" href="#concept-nan">Concept Nan</a></h2>
+<blockquote>
+<p>Floating-point types include “not a number” values (represented in Rust syntax as NAN values) to handle these cases.
+NAN values poison other numbers. 
+Almost all operations interacting with NAN return NAN.Another thing to be mindful of is that, by definition, NAN values are never equal. 
+To program defensively, make use of the <strong>is_nan() and is_finite()</strong> methods. Inducing a crash, rather than silently proceeding with a mathematical error, allows you to debug close to what has caused the problem. The following illustrates using the is_finite().</p>
+</blockquote>
+<h2 id="glossery"><a class="header" href="#glossery">Glossery</a></h2>
+<blockquote>
+<p>In Rust, global variables are called static variables</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../trait/shared-behavior/trait-bound/TRAIT_BOUND.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../types/num/NUM.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../trait/shared-behavior/trait-bound/TRAIT_BOUND.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../types/num/NUM.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

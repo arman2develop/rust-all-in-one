@@ -1,0 +1,11 @@
+[package]
+name = "master-rust-complex-rhs_lib"
+version = "0.1.0"
+edition = "2021"
+autobins = true
+
+[dependencies]
+proptest="1.0.0"
+
+[lib]
+doc = true
