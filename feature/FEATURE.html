@@ -1,0 +1,446 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>FEATURE - Rust-All-In-One(A.R)</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../rust/RUST.html"><strong aria-hidden="true">1.</strong> RUST</a></li><li class="chapter-item expanded "><a href="../TEMPLATE.html"><strong aria-hidden="true">2.</strong> TEMPLATE</a></li><li class="chapter-item expanded "><a href="../shared/SHARED.html"><strong aria-hidden="true">3.</strong> SHARED</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../borrowchecker/BORROWCHECKER.html"><strong aria-hidden="true">4.</strong> BORROWCHECKER</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../borrowchecker/semantic/SEMANTIC.html"><strong aria-hidden="true">4.1.</strong> SEMANTIC</a></li><li class="chapter-item "><a href="../borrowchecker/lifetime/LIFETIME.html"><strong aria-hidden="true">4.2.</strong> LIFETIME</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../borrowchecker/lifetime/static/LIFETIME_STATIC.html"><strong aria-hidden="true">4.2.1.</strong> STATIC</a></li><li class="chapter-item "><a href="../borrowchecker/lifetime/elision/LIFETIME_ELISION.html"><strong aria-hidden="true">4.2.2.</strong> ELISION</a></li><li class="chapter-item "><a href="../borrowchecker/lifetime/dangling/LIFETIME_DANGLING.html"><strong aria-hidden="true">4.2.3.</strong> DANGLING</a></li><li class="chapter-item "><a href="../borrowchecker/lifetime/generic/LIFETIME_GENERIC.html"><strong aria-hidden="true">4.2.4.</strong> GENERIC</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../benchmark/BENCHMARK.html"><strong aria-hidden="true">5.</strong> BENCHMARK</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../cpu/CPU.html"><strong aria-hidden="true">6.</strong> CPU</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../pointers/POINTERS.html"><strong aria-hidden="true">7.</strong> POINTERS</a></li><li class="chapter-item expanded "><a href="../pointers/smartpointer/SMARTPOINTER.html"><strong aria-hidden="true">8.</strong> SMARTPOINTER</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../pointers/smartpointer/compiletime/shared_owner_locally/rc/RC.html"><strong aria-hidden="true">8.1.</strong> RC</a></li><li class="chapter-item "><a href="../pointers/smartpointer/compiletime/box/BOX.html"><strong aria-hidden="true">8.2.</strong> BOX</a></li><li class="chapter-item "><a href="../pointers/smartpointer/runtime/shared_locally_mutability/ref-cell/REF_CELL.html"><strong aria-hidden="true">8.3.</strong> REF_CELL</a></li><li class="chapter-item "><a href="../pointers/smartpointer/ops/OPS.html"><strong aria-hidden="true">8.4.</strong> OPS</a></li><li class="chapter-item "><a href="../pointers/smartpointer/compiletime/cow/COW.html"><strong aria-hidden="true">8.5.</strong> COW</a></li><li class="chapter-item "><a href="../thread/sync/arc/ARC.html"><strong aria-hidden="true">8.6.</strong> ARC</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../process/PROCESS.html"><strong aria-hidden="true">9.</strong> PROCESS</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../collection/COLLECTION.html"><strong aria-hidden="true">10.</strong> COLLECTION</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../collection/hashmap/HASHMAP.html"><strong aria-hidden="true">10.1.</strong> HASHMAP</a></li><li class="chapter-item "><a href="../collection/slice/SLICE.html"><strong aria-hidden="true">10.2.</strong> SLICE</a></li><li class="chapter-item "><a href="../collection/vec/VECTOR.html"><strong aria-hidden="true">10.3.</strong> VECTOR</a></li><li class="chapter-item "><a href="../pointers/smartpointer/compiletime/shared_owner_locally/rc/linkedlist/LINKEDLIST.html"><strong aria-hidden="true">10.4.</strong> LINKEDLIST</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../commandline/COMMANDLINE.html"><strong aria-hidden="true">11.</strong> COMMANDLINE</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../data/DATA.html"><strong aria-hidden="true">12.</strong> DATA</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../data/operator/OPERATOR.html"><strong aria-hidden="true">12.1.</strong> OPERATOR</a></li><li class="chapter-item "><a href="../data/convert/CONVERT.html"><strong aria-hidden="true">12.2.</strong> CONVERT</a></li><li class="chapter-item "><a href="../data/io/IO.html"><strong aria-hidden="true">12.3.</strong> IO</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../data/io/file/FILE.html"><strong aria-hidden="true">12.3.1.</strong> FILE</a></li></ol></li><li class="chapter-item "><a href="../data/regex/REGEX.html"><strong aria-hidden="true">12.4.</strong> REGEX</a></li><li class="chapter-item "><a href="../data/arithmetic/ARITHMETIC.html"><strong aria-hidden="true">12.5.</strong> ARITHMETIC</a></li><li class="chapter-item "><a href="../data/serde/SERDE.html"><strong aria-hidden="true">12.6.</strong> SERDE</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../duplication/Duplication.html"><strong aria-hidden="true">13.</strong> Duplication</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../duplication/copy-clone/COPY-CLONE.html"><strong aria-hidden="true">13.1.</strong> COPY_CLONE</a></li></ol></li><li class="chapter-item expanded "><a href="../pointers/smartpointer/compiletime/shared_owner/rc/RC.html"><strong aria-hidden="true">14.</strong> RC</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../errorhandling/ERROR_HANDLING.html"><strong aria-hidden="true">15.</strong> ERROR_HANDLING</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../errorhandling/non-recoverable/ERROR_NONRECOVERABLE.html"><strong aria-hidden="true">15.1.</strong> ERROR_NONRECOVERABLE</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../feature/FEATURE.html" class="active"><strong aria-hidden="true">16.</strong> FEATURE</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../flowcontrol/FLOWCONTROL.html"><strong aria-hidden="true">17.</strong> FLOWCONTROL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../flowcontrol/for/FOR.html"><strong aria-hidden="true">17.1.</strong> FOR</a></li><li class="chapter-item "><a href="../flowcontrol/loop/LOOP.html"><strong aria-hidden="true">17.2.</strong> LOOP</a></li><li class="chapter-item "><a href="../flowcontrol/while/WHILE.html"><strong aria-hidden="true">17.3.</strong> WHILE</a></li><li class="chapter-item "><a href="../flowcontrol/match/MATCH.html"><strong aria-hidden="true">17.4.</strong> MATCH</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../functional-programming/FUNC-PROG.html"><strong aria-hidden="true">18.</strong> FUNCTION PROGRAMMING</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../functional-programming/closure/CLOSURE.html"><strong aria-hidden="true">18.1.</strong> CLOSURE</a></li><li class="chapter-item "><a href="../functional-programming/function/FUNCTION.html"><strong aria-hidden="true">18.2.</strong> FUNCTION</a></li><li class="chapter-item "><a href="../functional-programming/lazy/LAZY.html"><strong aria-hidden="true">18.3.</strong> LAZY</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../libc/LIBC.html"><strong aria-hidden="true">19.</strong> LIBC</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../network/NETWORK.html"><strong aria-hidden="true">20.</strong> NETWORK</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../oop/OOP.html"><strong aria-hidden="true">21.</strong> OOP</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../oop/trait/TRAIT.html"><strong aria-hidden="true">21.1.</strong> TRAIT</a></li></ol></li><li class="chapter-item expanded "><a href="../oop/design_patterns/DESIGN_PATTERN.html"><strong aria-hidden="true">22.</strong> DESIGN_PATTERN</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../oop/design_patterns/behavioral/state-pattern/STATE_PATTERN.html"><strong aria-hidden="true">22.1.</strong> STATE_PATTERN</a></li><li class="chapter-item "><a href="../oop/design_patterns/behavioral/BEHAVIOARAL.html"><strong aria-hidden="true">22.2.</strong> BEHAVIOARAL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../oop/design_patterns/behavioral/lpxxn/lpxxn-behavioral.html"><strong aria-hidden="true">22.2.1.</strong> LPXXN</a></li><li class="chapter-item "><a href="../oop/design_patterns/behavioral/process/PROCESS.html"><strong aria-hidden="true">22.2.2.</strong> PROCESS</a></li></ol></li><li class="chapter-item "><a href="../oop/design_patterns/creational/CREATIONAL.html"><strong aria-hidden="true">22.3.</strong> CREATIONAL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../oop/design_patterns/creational/lpxxn/lpxxn-creational.html"><strong aria-hidden="true">22.3.1.</strong> LPXXN</a></li></ol></li><li class="chapter-item "><a href="../oop/design_patterns/structural/STRUCTURAL.html"><strong aria-hidden="true">22.4.</strong> STRUCTRUAL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../oop/design_patterns/structural/lpxxn/lpxxn-structural.html"><strong aria-hidden="true">22.4.1.</strong> LPXXN</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../trait/TRAIT.html"><strong aria-hidden="true">23.</strong> TRAIT</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../trait/associate-type-or-trait/ASSOCIATE.html"><strong aria-hidden="true">23.1.</strong> ASSOCIATE</a></li><li class="chapter-item "><a href="../trait/inheritance/INHERITANCE.html"><strong aria-hidden="true">23.2.</strong> INHERITANCE</a></li><li class="chapter-item "><a href="../trait/built-in/BUILT_IN.html"><strong aria-hidden="true">23.3.</strong> BUILT-IN</a></li><li class="chapter-item "><a href="../trait/shared-behavior/SHARED_BEHAVIOR.html"><strong aria-hidden="true">23.4.</strong> SHARED_BEHAVIOR</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../trait/shared-behavior/builtin-trait/BUILTIN-TRAIT.html"><strong aria-hidden="true">23.4.1.</strong> BUILTIN-TRAIT</a></li><li class="chapter-item "><a href="../trait/shared-behavior/safe-object/SAFEOBJECT.html"><strong aria-hidden="true">23.4.2.</strong> SAFE OBJECT</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../trait/shared-behavior/safe-object/dispatchable/TRAITOBJECT.html"><strong aria-hidden="true">23.4.2.1.</strong> TRAITOBJECT</a></li></ol></li><li class="chapter-item "><a href="../trait/shared-behavior/none-object-safe/NONE_OBJECT_SAFE.html"><strong aria-hidden="true">23.4.3.</strong> NON_OBJECT_SAFE</a></li><li class="chapter-item "><a href="../trait/shared-behavior/aggregator/AGGRIGATOR.html"><strong aria-hidden="true">23.4.4.</strong> AGGRIGATOR</a></li></ol></li><li class="chapter-item "><a href="../trait/shared-behavior/trait-bound/TRAIT_BOUND.html"><strong aria-hidden="true">23.5.</strong> TRAIT_BOUND</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../trait/shared-behavior/trait-bound/operator/OPERATOR.html"><strong aria-hidden="true">23.5.1.</strong> OPERATOR</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../types/M_TYPES.html"><strong aria-hidden="true">24.</strong> TYPES</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../types/generic/GENERIC.html"><strong aria-hidden="true">24.1.</strong> GENERIC</a></li><li class="chapter-item "><a href="../types/return/RETURN.html"><strong aria-hidden="true">24.2.</strong> RETURN</a></li><li class="chapter-item "><a href="../types/static/STATIC.html"><strong aria-hidden="true">24.3.</strong> STATIC</a></li><li class="chapter-item "><a href="../types/wrapper/WRAPPER.html"><strong aria-hidden="true">24.4.</strong> WRAPPER</a></li><li class="chapter-item "><a href="../types/rhs/RHS.html"><strong aria-hidden="true">24.5.</strong> RHS</a></li><li class="chapter-item "><a href="../types/var/VAR.html"><strong aria-hidden="true">24.6.</strong> VAR</a></li><li class="chapter-item "><a href="../types/mscal/M_SCAL.html"><strong aria-hidden="true">24.7.</strong> SCALAR</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../types/mscal/numeric/NUMERIC.html"><strong aria-hidden="true">24.7.1.</strong> NUMERIC</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../types/mscal/numeric/primitive/PRIMITIVE.html"><strong aria-hidden="true">24.7.1.1.</strong> PRIMITIVE</a></li><li class="chapter-item "><a href="../types/mscal/numeric/num/NUM.html"><strong aria-hidden="true">24.7.1.2.</strong> NUM</a></li></ol></li><li class="chapter-item "><a href="../types/mscal/non_numeric/NON_NUMERIC.html"><strong aria-hidden="true">24.7.2.</strong> NON_NUMERIC</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../types/mscal/non_numeric/string/STRING.html"><strong aria-hidden="true">24.7.2.1.</strong> STRING</a></li><li class="chapter-item "><a href="../types/mscal/non_numeric/char/CHAR.html"><strong aria-hidden="true">24.7.2.2.</strong> CHAR</a></li></ol></li></ol></li><li class="chapter-item "><a href="../types/compound/COMPOUND.html"><strong aria-hidden="true">24.8.</strong> COMPOUND</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../types/compound/array/ARRAY.html"><strong aria-hidden="true">24.8.1.</strong> ARRAY</a></li><li class="chapter-item "><a href="../types/compound/tuple/TUPLE.html"><strong aria-hidden="true">24.8.2.</strong> TUPLE</a></li><li class="chapter-item "><a href="../types/compound/union/UNION.html"><strong aria-hidden="true">24.8.3.</strong> UNION</a></li><li class="chapter-item "><a href="../types/compound/struct/STRUCT.html"><strong aria-hidden="true">24.8.4.</strong> STRUCT</a></li><li class="chapter-item "><a href="../types/compound/enum/ENUM.html"><strong aria-hidden="true">24.8.5.</strong> ENUM</a></li><li class="chapter-item "><a href="../types/compound/option/OPTION.html"><strong aria-hidden="true">24.8.6.</strong> OPTION</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../stdmisc/STDMISC.html"><strong aria-hidden="true">25.</strong> STDMISC</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../stdmisc/rust-doc/rd-thread-channel.html"><strong aria-hidden="true">25.1.</strong> thread-channel</a></li><li class="chapter-item "><a href="../stdmisc/rust-doc/rd-path.html"><strong aria-hidden="true">25.2.</strong> path</a></li><li class="chapter-item "><a href="../stdmisc/rust-doc/rd-file.html"><strong aria-hidden="true">25.3.</strong> file</a></li><li class="chapter-item "><a href="../stdmisc/rust-doc/rd-filesystem.html"><strong aria-hidden="true">25.4.</strong> filesystem</a></li><li class="chapter-item "><a href="../stdmisc/rust-doc/rd-command-process.html"><strong aria-hidden="true">25.5.</strong> command-process</a></li><li class="chapter-item "><a href="../stdmisc/rust-doc/rd-ffi.html"><strong aria-hidden="true">25.6.</strong> ffi</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../thread/THREAD.html"><strong aria-hidden="true">26.</strong> THREAD</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../thread/race/RACE.html"><strong aria-hidden="true">26.1.</strong> RACE</a></li><li class="chapter-item "><a href="../thread/rayon/RAYON.html"><strong aria-hidden="true">26.2.</strong> RAYON</a></li><li class="chapter-item "><a href="../thread/sync/ATOMIC.html"><strong aria-hidden="true">26.3.</strong> Sync_Atomic_Mutex</a></li><li class="chapter-item "><a href="../thread/mpsc/MPSC.html"><strong aria-hidden="true">26.4.</strong> MPSC</a></li><li class="chapter-item "><a href="../thread/time/THREAD-TIME.html"><strong aria-hidden="true">26.5.</strong> THREAD_TIME</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../time/TIME.html"><strong aria-hidden="true">27.</strong> TIME</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../tests/TESTS.html"><strong aria-hidden="true">28.</strong> TEST</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../tests/test_structures/test-structures.html"><strong aria-hidden="true">28.1.</strong> Structures</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../tests/test_structures/test_unit/test-unit.html"><strong aria-hidden="true">28.1.1.</strong> Unit</a></li><li class="chapter-item "><a href="../tests/test_structures/test_pretty/test-pretty.html"><strong aria-hidden="true">28.1.2.</strong> Pretty</a></li><li class="chapter-item "><a href="../tests/test_structures/test_proptest/test-proptest.html"><strong aria-hidden="true">28.1.3.</strong> Proptest</a></li><li class="chapter-item "><a href="../tests/test_structures/test_proptest_runner/test-proptest_runner.html"><strong aria-hidden="true">28.1.4.</strong> Proptest_runner</a></li><li class="chapter-item "><a href="../tests/test_structures/test_fixture/test-fixture.html"><strong aria-hidden="true">28.1.5.</strong> Fixture</a></li></ol></li><li class="chapter-item "><a href="../tests/tests_samples/test-samples.html"><strong aria-hidden="true">28.2.</strong> Samples</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../unsafe/UNSAFE.html"><strong aria-hidden="true">29.</strong> UNSAFE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../unsafe/extern-ffi/EXTERN-FFI.html"><strong aria-hidden="true">29.1.</strong> EXTERN_FFI</a></li><li class="chapter-item "><a href="../unsafe/safe-abstraction/SAFE_ABSTRACTION.html"><strong aria-hidden="true">29.2.</strong> SAFE_ABSTRACTION</a></li><li class="chapter-item "><a href="../unsafe/safe-static-mut/SAFE_STATIC_MUT.html"><strong aria-hidden="true">29.3.</strong> SAFE_STATIC_MUT</a></li><li class="chapter-item "><a href="../unsafe/unsafe-thread/THREAD_UNSAFE.html"><strong aria-hidden="true">29.4.</strong> THREAD_UNSAFE</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../macro/MACRO.html"><strong aria-hidden="true">30.</strong> MACRO</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../module/MODULE.html"><strong aria-hidden="true">31.</strong> MOUDULE</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../memory/MEMORY.html"><strong aria-hidden="true">32.</strong> MEMORY</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../memory/allocator/ALLOCATOR.html"><strong aria-hidden="true">32.1.</strong> ALLOCATOR</a></li><li class="chapter-item "><a href="../memory/piston/PISTON.html"><strong aria-hidden="true">32.2.</strong> PISTON</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../idioms/IDIOMS.html"><strong aria-hidden="true">33.</strong> IDIOMS</a></li><li class="chapter-item expanded "><a href="../grammer/GRAMMER.html"><strong aria-hidden="true">34.</strong> GRAMMER</a></li><li class="chapter-item expanded "><a href="../brain-teaser/BRAIN_TREASER.html"><strong aria-hidden="true">35.</strong> BRAIN_TREASER</a></li><li class="chapter-item expanded "><a href="../questions/QUESTIONS.html"><strong aria-hidden="true">36.</strong> QUESTIONS</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../questions/triplebyte/TBYTE.html"><strong aria-hidden="true">36.1.</strong> TBYTE</a></li></ol></li><li class="chapter-item expanded "><a href="../algorithm/ALGORITHM.html"><strong aria-hidden="true">37.</strong> ALGORITHM</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust-All-In-One(A.R)</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/arman2develop/rust-all-in-one/tree/main/workspace" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/arman2develop/rust-all-in-one/edit/main/workspace/./workspace//feature/FEATURE.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>[[clp-feature-dryoc]]</p>
+<p>[[rd-feature-shapes-lib]]</p>
+<p>[[rd-macro-fearues]]</p>
+<p>[[rd-carg-metadata]]</p>
+<hr />
+<h2 id="feature-rust-for-what"><a class="header" href="#feature-rust-for-what">Feature Rust for what?</a></h2>
+<p>To express conditional compilation and optional dependencies.
+The ability to pick compile time features in Rust can improve your code’s performance, size, maintainability, safety, and portability.
+Features for the package being built can be enabled on the command-line with flags such as <code>--features</code></p>
+<ul>
+<li>The <code>--no-default-features</code> command-line flag disables the default features of the package.</li>
+<li>The <code>default-features = false</code> option can be specified in a dependency declaration.</li>
+<li><code>--all-features</code>: Activates all features of all packages selected on the command-line.</li>
+</ul>
+<h2 id="caution"><a class="header" href="#caution">Caution</a></h2>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Dependencies automatically enable default features unless <code>default-features = false</code> is specified.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Another issue is that it can be a <code>SemVer incompatible change</code> to remove a feature from the default set, so you should be confident that you will keep those features.</li>
+</ul>
+<blockquote>
+<p>A different feature resolver can be specified with the resolver field in Cargo.toml, like this:</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust no_run  compile_fail edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>[package]
+name = &quot;my-package&quot;
+version = &quot;1.0.0&quot;
+resolver = &quot;2&quot;
+<span class="boring">}
+</span></code></pre></pre>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Dependencies can be marked <code>optional</code>, <strong>which means they will not be compiled by default</strong> except using <code>--features name</code> to enable dependency that has <code>optional</code> field.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+There are rare cases where features may be mutually incompatible with one another. consider adding a compile error to detect this scenario. For example:</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust no_run  compile_fail edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[cfg(all(feature = &quot;foo&quot;, feature = &quot;bar&quot;))]
+compile_error!(&quot;feature \&quot;foo\&quot; and feature \&quot;bar\&quot; cannot be enabled at the same time&quot;);
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>When there is a conflict, choose one feature over another. The <strong>cfg-if</strong> package can help with writing more complex cfg expressions.</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+For example, if you want to optionally support no_std environments, do not use a no_std feature. Instead, use a std feature that enables std. For example:</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust no_run  compile_fail edition2021">
+<span class="boring">#![allow(unused)]
+</span>#![no_std]
+
+<span class="boring">fn main() {
+</span>#[cfg(feature = &quot;std&quot;)]
+extern crate std;
+
+#[cfg(feature = &quot;std&quot;)]
+pub fn function_that_requires_std() {
+    // ...
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="rules"><a class="header" href="#rules">Rules</a></h2>
+<pre><pre class="playground"><code class="language-rust no_run  compile_fail edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>[dependencies]
+ravif = { version = &quot;0.6.3&quot;, optional = true }
+rgb = { version = &quot;0.8.25&quot;, optional = true }
+
+[features]
+avif = [&quot;dep:ravif&quot;, &quot;dep:rgb&quot;]
+<span class="boring">}
+</span></code></pre></pre>
+<p>In above example, the avif feature will enable the two listed dependencies. This also avoids creating the implicit ravif and rgb features, since we don’t want users to enable those individually as they are internal details to our crate.</p>
+<h3 id="dependency-features"><a class="header" href="#dependency-features">Dependency features</a></h3>
+<p>Features of dependencies can be enabled within the dependency declaration. The features key indicates which features to enable:</p>
+<pre><pre class="playground"><code class="language-rust no_run  compile_fail edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>[dependencies]
+<span class="boring">Enables the `derive` feature of serde.
+</span>serde = { version = &quot;1.0.118&quot;, features = [&quot;derive&quot;] }
+<span class="boring">}
+</span></code></pre></pre>
+<p>The default features can be disabled using default-features = false:</p>
+<pre><pre class="playground"><code class="language-rust no_run  compile_fail edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>[dependencies]
+flate2 = { version = &quot;1.0.3&quot;, default-features = false, features = [&quot;zlib&quot;] }
+<span class="boring">}
+</span></code></pre></pre>
+<p>Features of dependencies can also be enabled in the [features] table. The syntax is “package-name/feature-name”. For example:</p>
+<pre><pre class="playground"><code class="language-rust no_run  compile_fail edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>[dependencies]
+jpeg-decoder = { version = &quot;0.1.20&quot;, default-features = false }
+
+[features]
+//Enables parallel processing support by enabling the &quot;rayon&quot; feature of jpeg-decoder.
+parallel = [&quot;jpeg-decoder/rayon&quot;]
+<span class="boring">}
+</span></code></pre></pre>
+<p>The “package-name/feature-name” syntax will also enable package-name if it is an optional dependency. Often this is not what you want. You can add a ? as in <code>&quot;package-name?/feature-name&quot;</code> which will only enable the given feature if something else enables the optional dependency.</p>
+<blockquote>
+<p>Note: The ? syntax is only available starting with Rust 1.60.</p>
+</blockquote>
+<h2 id="how-does-cc-compare"><a class="header" href="#how-does-cc-compare">How Does C/C++ Compare?</a></h2>
+<p>C++ does not have a built-in feature directly equivalent to the ability to pick compile time features in Rust. However, C++ does have a number of preprocessor directives that can be used to include or exclude certain code at compile time selectively.</p>
+<h1 id="how-to-implement"><a class="header" href="#how-to-implement">How to implement?</a></h1>
+<p>Code of <code>#[cfg(feature = &quot;my-feature&quot;)]</code> is used for a function or module. It is feasable to enable a feature flag for a specific struct or enum, a test/benchmark case, and a specific implementation of a trait as well.</p>
+<p>To enable a feature only when multiple flags are set, you can use the </p>
+<blockquote>
+<p><code>#[cfg(all(feature1, feature2, ...))].</code></p>
+</blockquote>
+<h2 id="example-1"><a class="header" href="#example-1">Example 1</a></h2>
+<pre><pre class="playground"><code class="language-rust  no_run  compile_fail edition2021">
+<span class="boring">#![allow(unused)]
+</span>
+<span class="boring">fn main() {
+</span>// SubFolder monitor mod.rs
+//! Signal monitor
+#[cfg(unix)]
+#[path = &quot;unix.rs&quot;]
+mod imp;
+
+#[cfg(windows)]
+#[path = &quot;windows.rs&quot;]
+mod imp;
+
+#[cfg(not(any(windows, unix)))]
+#[path = &quot;other.rs&quot;]
+mod imp;
+
+pub use self::imp::create_signal_monitor;
+//unix.rs or windows.rs or other.rs
+pub fn create_signal_monitor(){
+    unimplemented!();
+}
+
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="example-2"><a class="header" href="#example-2">Example 2</a></h2>
+<pre><pre class="playground"><code class="language-rust  no_run  compile_fail edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span> //Enables use statement only when serde is enabled.
+ #[cfg(feature = &quot;serde&quot;)]
+ use serde::{Deserialize, Serialize};
+
+ use zeroize::Zeroize;
+
+
+ // Enables the derive() statement only when serde is enabled.
+ #[cfg_attr(
+     feature = &quot;serde&quot;,
+     derive(Serialize, Deserialize, Zeroize, Debug, PartialEq)
+ )] // B
+ //Enables the derive() statement only when serde is disabled.
+ #[cfg_attr(not(feature = &quot;serde&quot;), derive(Zeroize, Debug, PartialEq))]
+ #[zeroize(drop)]
+ //Message container, for use with unencrypted messages
+ pub struct Message(pub Box&lt;InputBase&gt;);
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="example-3"><a class="header" href="#example-3">Example 3</a></h2>
+<pre><pre class="playground"><code class="language-rust  no_run  compile_fail edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[cfg(feature = &quot;shapes&quot;)]
+pub mod shapes {}
+<span class="boring">}
+</span></code></pre></pre>
+<h3 id="cargotoml"><a class="header" href="#cargotoml">Cargo.toml</a></h3>
+<pre><pre class="playground"><code class="language-rust  no_run  compile_fail edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>[dependencies]
+serde = { version = &quot;1.0&quot;, features = [&quot;derive&quot;], optional = true , default-features = true}
+rgb = { version = &quot;0.8.25&quot;, features = [&quot;serde&quot;], optional = true , default-features = true}
+[features]
+default = [&quot;shapes&quot;]
+color = [&quot;dep:rgb&quot;]
+shapes = [&quot;color&quot;, &quot;dep:serde&quot;, &quot;rgb?/serde&quot;]
+<span class="boring">}
+</span></code></pre></pre>
+<hr />
+<h2 id="making-featured-everythings"><a class="header" href="#making-featured-everythings">Making Featured Everythings</a></h2>
+<pre><pre class="playground"><code class="language-rust  no_run  compile_fail edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>//! Memory allocator
+#[cfg(feature = &quot;jemalloc&quot;)]
+#[global_allocator]
+static ALLOC: jemallocator::Jemalloc = jemallocator::Jemalloc;
+#[cfg(feature = &quot;tcmalloc&quot;)]
+#[global_allocator]
+static ALLOC: tcmalloc::TCMalloc = tcmalloc::TCMalloc;
+#[cfg(feature = &quot;mimalloc&quot;)]
+#[global_allocator]
+static ALLOC: mimalloc::MiMalloc = mimalloc::MiMalloc;
+#[cfg(feature = &quot;snmalloc&quot;)]
+#[global_allocator]
+static ALLOC: snmalloc_rs::SnMalloc = snmalloc_rs::SnMalloc;
+#[cfg(feature = &quot;rpmalloc&quot;)]
+#[global_allocator]
+static ALLOC: rpmalloc::RpMalloc = rpmalloc::RpMalloc
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>In this example, you see how to let your users “layer in” the functionality they need, where you can pick how much deeper you want to go:</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust  no_run  compile_fail edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>//! Service launchers
+pub mod genkey;
+#[cfg(feature = &quot;local&quot;)]
+pub mod local;
+#[cfg(feature = &quot;manager&quot;)]
+pub mod manager;
+#[cfg(feature = &quot;server&quot;)]
+pub mod server;
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>In the below example, you can use blocks to “artificially” scope in entire pieces of code under a feature:</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust  no_run  compile_fail edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[cfg(feature = &quot;local-tunnel&quot;)]
+{
+    app = app.arg(
+        Arg::new(&quot;FORWARD_ADDR&quot;)
+            .short('f')
+            .long(&quot;forward-addr&quot;)
+            .num_args(1)
+            .action(ArgAction::Set)
+            .requires(&quot;LOCAL_ADDR&quot;)
+            .value_parser(vparser::parse_address)
+            .required_if_eq(&quot;PROTOCOL&quot;, &quot;tunnel&quot;)
+            .help(&quot;Forwarding data directly to this address (for tunnel)&quot;),
+    );
+}
+<span class="boring">}
+</span></code></pre></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../errorhandling/non-recoverable/ERROR_NONRECOVERABLE.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../flowcontrol/FLOWCONTROL.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../errorhandling/non-recoverable/ERROR_NONRECOVERABLE.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../flowcontrol/FLOWCONTROL.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

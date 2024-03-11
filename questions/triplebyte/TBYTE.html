@@ -1,0 +1,934 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>TBYTE - Rust-All-In-One(A.R)</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../rust/RUST.html"><strong aria-hidden="true">1.</strong> RUST</a></li><li class="chapter-item expanded "><a href="../../TEMPLATE.html"><strong aria-hidden="true">2.</strong> TEMPLATE</a></li><li class="chapter-item expanded "><a href="../../shared/SHARED.html"><strong aria-hidden="true">3.</strong> SHARED</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../../borrowchecker/BORROWCHECKER.html"><strong aria-hidden="true">4.</strong> BORROWCHECKER</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../borrowchecker/semantic/SEMANTIC.html"><strong aria-hidden="true">4.1.</strong> SEMANTIC</a></li><li class="chapter-item "><a href="../../borrowchecker/lifetime/LIFETIME.html"><strong aria-hidden="true">4.2.</strong> LIFETIME</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../borrowchecker/lifetime/static/LIFETIME_STATIC.html"><strong aria-hidden="true">4.2.1.</strong> STATIC</a></li><li class="chapter-item "><a href="../../borrowchecker/lifetime/elision/LIFETIME_ELISION.html"><strong aria-hidden="true">4.2.2.</strong> ELISION</a></li><li class="chapter-item "><a href="../../borrowchecker/lifetime/dangling/LIFETIME_DANGLING.html"><strong aria-hidden="true">4.2.3.</strong> DANGLING</a></li><li class="chapter-item "><a href="../../borrowchecker/lifetime/generic/LIFETIME_GENERIC.html"><strong aria-hidden="true">4.2.4.</strong> GENERIC</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../benchmark/BENCHMARK.html"><strong aria-hidden="true">5.</strong> BENCHMARK</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../../cpu/CPU.html"><strong aria-hidden="true">6.</strong> CPU</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../../pointers/POINTERS.html"><strong aria-hidden="true">7.</strong> POINTERS</a></li><li class="chapter-item expanded "><a href="../../pointers/smartpointer/SMARTPOINTER.html"><strong aria-hidden="true">8.</strong> SMARTPOINTER</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../pointers/smartpointer/compiletime/shared_owner_locally/rc/RC.html"><strong aria-hidden="true">8.1.</strong> RC</a></li><li class="chapter-item "><a href="../../pointers/smartpointer/compiletime/box/BOX.html"><strong aria-hidden="true">8.2.</strong> BOX</a></li><li class="chapter-item "><a href="../../pointers/smartpointer/runtime/shared_locally_mutability/ref-cell/REF_CELL.html"><strong aria-hidden="true">8.3.</strong> REF_CELL</a></li><li class="chapter-item "><a href="../../pointers/smartpointer/ops/OPS.html"><strong aria-hidden="true">8.4.</strong> OPS</a></li><li class="chapter-item "><a href="../../pointers/smartpointer/compiletime/cow/COW.html"><strong aria-hidden="true">8.5.</strong> COW</a></li><li class="chapter-item "><a href="../../thread/sync/arc/ARC.html"><strong aria-hidden="true">8.6.</strong> ARC</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../../process/PROCESS.html"><strong aria-hidden="true">9.</strong> PROCESS</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../../collection/COLLECTION.html"><strong aria-hidden="true">10.</strong> COLLECTION</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../collection/hashmap/HASHMAP.html"><strong aria-hidden="true">10.1.</strong> HASHMAP</a></li><li class="chapter-item "><a href="../../collection/slice/SLICE.html"><strong aria-hidden="true">10.2.</strong> SLICE</a></li><li class="chapter-item "><a href="../../collection/vec/VECTOR.html"><strong aria-hidden="true">10.3.</strong> VECTOR</a></li><li class="chapter-item "><a href="../../pointers/smartpointer/compiletime/shared_owner_locally/rc/linkedlist/LINKEDLIST.html"><strong aria-hidden="true">10.4.</strong> LINKEDLIST</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../../commandline/COMMANDLINE.html"><strong aria-hidden="true">11.</strong> COMMANDLINE</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../../data/DATA.html"><strong aria-hidden="true">12.</strong> DATA</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../data/operator/OPERATOR.html"><strong aria-hidden="true">12.1.</strong> OPERATOR</a></li><li class="chapter-item "><a href="../../data/convert/CONVERT.html"><strong aria-hidden="true">12.2.</strong> CONVERT</a></li><li class="chapter-item "><a href="../../data/io/IO.html"><strong aria-hidden="true">12.3.</strong> IO</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../data/io/file/FILE.html"><strong aria-hidden="true">12.3.1.</strong> FILE</a></li></ol></li><li class="chapter-item "><a href="../../data/regex/REGEX.html"><strong aria-hidden="true">12.4.</strong> REGEX</a></li><li class="chapter-item "><a href="../../data/arithmetic/ARITHMETIC.html"><strong aria-hidden="true">12.5.</strong> ARITHMETIC</a></li><li class="chapter-item "><a href="../../data/serde/SERDE.html"><strong aria-hidden="true">12.6.</strong> SERDE</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../../duplication/Duplication.html"><strong aria-hidden="true">13.</strong> Duplication</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../duplication/copy-clone/COPY-CLONE.html"><strong aria-hidden="true">13.1.</strong> COPY_CLONE</a></li></ol></li><li class="chapter-item expanded "><a href="../../pointers/smartpointer/compiletime/shared_owner/rc/RC.html"><strong aria-hidden="true">14.</strong> RC</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../../errorhandling/ERROR_HANDLING.html"><strong aria-hidden="true">15.</strong> ERROR_HANDLING</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../errorhandling/non-recoverable/ERROR_NONRECOVERABLE.html"><strong aria-hidden="true">15.1.</strong> ERROR_NONRECOVERABLE</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../../feature/FEATURE.html"><strong aria-hidden="true">16.</strong> FEATURE</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../../flowcontrol/FLOWCONTROL.html"><strong aria-hidden="true">17.</strong> FLOWCONTROL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../flowcontrol/for/FOR.html"><strong aria-hidden="true">17.1.</strong> FOR</a></li><li class="chapter-item "><a href="../../flowcontrol/loop/LOOP.html"><strong aria-hidden="true">17.2.</strong> LOOP</a></li><li class="chapter-item "><a href="../../flowcontrol/while/WHILE.html"><strong aria-hidden="true">17.3.</strong> WHILE</a></li><li class="chapter-item "><a href="../../flowcontrol/match/MATCH.html"><strong aria-hidden="true">17.4.</strong> MATCH</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../../functional-programming/FUNC-PROG.html"><strong aria-hidden="true">18.</strong> FUNCTION PROGRAMMING</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../functional-programming/closure/CLOSURE.html"><strong aria-hidden="true">18.1.</strong> CLOSURE</a></li><li class="chapter-item "><a href="../../functional-programming/function/FUNCTION.html"><strong aria-hidden="true">18.2.</strong> FUNCTION</a></li><li class="chapter-item "><a href="../../functional-programming/lazy/LAZY.html"><strong aria-hidden="true">18.3.</strong> LAZY</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../../libc/LIBC.html"><strong aria-hidden="true">19.</strong> LIBC</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../../network/NETWORK.html"><strong aria-hidden="true">20.</strong> NETWORK</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../../oop/OOP.html"><strong aria-hidden="true">21.</strong> OOP</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../oop/trait/TRAIT.html"><strong aria-hidden="true">21.1.</strong> TRAIT</a></li></ol></li><li class="chapter-item expanded "><a href="../../oop/design_patterns/DESIGN_PATTERN.html"><strong aria-hidden="true">22.</strong> DESIGN_PATTERN</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../oop/design_patterns/behavioral/state-pattern/STATE_PATTERN.html"><strong aria-hidden="true">22.1.</strong> STATE_PATTERN</a></li><li class="chapter-item "><a href="../../oop/design_patterns/behavioral/BEHAVIOARAL.html"><strong aria-hidden="true">22.2.</strong> BEHAVIOARAL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../oop/design_patterns/behavioral/lpxxn/lpxxn-behavioral.html"><strong aria-hidden="true">22.2.1.</strong> LPXXN</a></li><li class="chapter-item "><a href="../../oop/design_patterns/behavioral/process/PROCESS.html"><strong aria-hidden="true">22.2.2.</strong> PROCESS</a></li></ol></li><li class="chapter-item "><a href="../../oop/design_patterns/creational/CREATIONAL.html"><strong aria-hidden="true">22.3.</strong> CREATIONAL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../oop/design_patterns/creational/lpxxn/lpxxn-creational.html"><strong aria-hidden="true">22.3.1.</strong> LPXXN</a></li></ol></li><li class="chapter-item "><a href="../../oop/design_patterns/structural/STRUCTURAL.html"><strong aria-hidden="true">22.4.</strong> STRUCTRUAL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../oop/design_patterns/structural/lpxxn/lpxxn-structural.html"><strong aria-hidden="true">22.4.1.</strong> LPXXN</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../trait/TRAIT.html"><strong aria-hidden="true">23.</strong> TRAIT</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../trait/associate-type-or-trait/ASSOCIATE.html"><strong aria-hidden="true">23.1.</strong> ASSOCIATE</a></li><li class="chapter-item "><a href="../../trait/inheritance/INHERITANCE.html"><strong aria-hidden="true">23.2.</strong> INHERITANCE</a></li><li class="chapter-item "><a href="../../trait/built-in/BUILT_IN.html"><strong aria-hidden="true">23.3.</strong> BUILT-IN</a></li><li class="chapter-item "><a href="../../trait/shared-behavior/SHARED_BEHAVIOR.html"><strong aria-hidden="true">23.4.</strong> SHARED_BEHAVIOR</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../trait/shared-behavior/builtin-trait/BUILTIN-TRAIT.html"><strong aria-hidden="true">23.4.1.</strong> BUILTIN-TRAIT</a></li><li class="chapter-item "><a href="../../trait/shared-behavior/safe-object/SAFEOBJECT.html"><strong aria-hidden="true">23.4.2.</strong> SAFE OBJECT</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../trait/shared-behavior/safe-object/dispatchable/TRAITOBJECT.html"><strong aria-hidden="true">23.4.2.1.</strong> TRAITOBJECT</a></li></ol></li><li class="chapter-item "><a href="../../trait/shared-behavior/none-object-safe/NONE_OBJECT_SAFE.html"><strong aria-hidden="true">23.4.3.</strong> NON_OBJECT_SAFE</a></li><li class="chapter-item "><a href="../../trait/shared-behavior/aggregator/AGGRIGATOR.html"><strong aria-hidden="true">23.4.4.</strong> AGGRIGATOR</a></li></ol></li><li class="chapter-item "><a href="../../trait/shared-behavior/trait-bound/TRAIT_BOUND.html"><strong aria-hidden="true">23.5.</strong> TRAIT_BOUND</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../trait/shared-behavior/trait-bound/operator/OPERATOR.html"><strong aria-hidden="true">23.5.1.</strong> OPERATOR</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../types/M_TYPES.html"><strong aria-hidden="true">24.</strong> TYPES</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../types/generic/GENERIC.html"><strong aria-hidden="true">24.1.</strong> GENERIC</a></li><li class="chapter-item "><a href="../../types/return/RETURN.html"><strong aria-hidden="true">24.2.</strong> RETURN</a></li><li class="chapter-item "><a href="../../types/static/STATIC.html"><strong aria-hidden="true">24.3.</strong> STATIC</a></li><li class="chapter-item "><a href="../../types/wrapper/WRAPPER.html"><strong aria-hidden="true">24.4.</strong> WRAPPER</a></li><li class="chapter-item "><a href="../../types/rhs/RHS.html"><strong aria-hidden="true">24.5.</strong> RHS</a></li><li class="chapter-item "><a href="../../types/var/VAR.html"><strong aria-hidden="true">24.6.</strong> VAR</a></li><li class="chapter-item "><a href="../../types/mscal/M_SCAL.html"><strong aria-hidden="true">24.7.</strong> SCALAR</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../types/mscal/numeric/NUMERIC.html"><strong aria-hidden="true">24.7.1.</strong> NUMERIC</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../types/mscal/numeric/primitive/PRIMITIVE.html"><strong aria-hidden="true">24.7.1.1.</strong> PRIMITIVE</a></li><li class="chapter-item "><a href="../../types/mscal/numeric/num/NUM.html"><strong aria-hidden="true">24.7.1.2.</strong> NUM</a></li></ol></li><li class="chapter-item "><a href="../../types/mscal/non_numeric/NON_NUMERIC.html"><strong aria-hidden="true">24.7.2.</strong> NON_NUMERIC</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../types/mscal/non_numeric/string/STRING.html"><strong aria-hidden="true">24.7.2.1.</strong> STRING</a></li><li class="chapter-item "><a href="../../types/mscal/non_numeric/char/CHAR.html"><strong aria-hidden="true">24.7.2.2.</strong> CHAR</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../types/compound/COMPOUND.html"><strong aria-hidden="true">24.8.</strong> COMPOUND</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../types/compound/array/ARRAY.html"><strong aria-hidden="true">24.8.1.</strong> ARRAY</a></li><li class="chapter-item "><a href="../../types/compound/tuple/TUPLE.html"><strong aria-hidden="true">24.8.2.</strong> TUPLE</a></li><li class="chapter-item "><a href="../../types/compound/union/UNION.html"><strong aria-hidden="true">24.8.3.</strong> UNION</a></li><li class="chapter-item "><a href="../../types/compound/struct/STRUCT.html"><strong aria-hidden="true">24.8.4.</strong> STRUCT</a></li><li class="chapter-item "><a href="../../types/compound/enum/ENUM.html"><strong aria-hidden="true">24.8.5.</strong> ENUM</a></li><li class="chapter-item "><a href="../../types/compound/option/OPTION.html"><strong aria-hidden="true">24.8.6.</strong> OPTION</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../stdmisc/STDMISC.html"><strong aria-hidden="true">25.</strong> STDMISC</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../stdmisc/rust-doc/rd-thread-channel.html"><strong aria-hidden="true">25.1.</strong> thread-channel</a></li><li class="chapter-item "><a href="../../stdmisc/rust-doc/rd-path.html"><strong aria-hidden="true">25.2.</strong> path</a></li><li class="chapter-item "><a href="../../stdmisc/rust-doc/rd-file.html"><strong aria-hidden="true">25.3.</strong> file</a></li><li class="chapter-item "><a href="../../stdmisc/rust-doc/rd-filesystem.html"><strong aria-hidden="true">25.4.</strong> filesystem</a></li><li class="chapter-item "><a href="../../stdmisc/rust-doc/rd-command-process.html"><strong aria-hidden="true">25.5.</strong> command-process</a></li><li class="chapter-item "><a href="../../stdmisc/rust-doc/rd-ffi.html"><strong aria-hidden="true">25.6.</strong> ffi</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../../thread/THREAD.html"><strong aria-hidden="true">26.</strong> THREAD</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../thread/race/RACE.html"><strong aria-hidden="true">26.1.</strong> RACE</a></li><li class="chapter-item "><a href="../../thread/rayon/RAYON.html"><strong aria-hidden="true">26.2.</strong> RAYON</a></li><li class="chapter-item "><a href="../../thread/sync/ATOMIC.html"><strong aria-hidden="true">26.3.</strong> Sync_Atomic_Mutex</a></li><li class="chapter-item "><a href="../../thread/mpsc/MPSC.html"><strong aria-hidden="true">26.4.</strong> MPSC</a></li><li class="chapter-item "><a href="../../thread/time/THREAD-TIME.html"><strong aria-hidden="true">26.5.</strong> THREAD_TIME</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../../time/TIME.html"><strong aria-hidden="true">27.</strong> TIME</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../../tests/TESTS.html"><strong aria-hidden="true">28.</strong> TEST</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../tests/test_structures/test-structures.html"><strong aria-hidden="true">28.1.</strong> Structures</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../tests/test_structures/test_unit/test-unit.html"><strong aria-hidden="true">28.1.1.</strong> Unit</a></li><li class="chapter-item "><a href="../../tests/test_structures/test_pretty/test-pretty.html"><strong aria-hidden="true">28.1.2.</strong> Pretty</a></li><li class="chapter-item "><a href="../../tests/test_structures/test_proptest/test-proptest.html"><strong aria-hidden="true">28.1.3.</strong> Proptest</a></li><li class="chapter-item "><a href="../../tests/test_structures/test_proptest_runner/test-proptest_runner.html"><strong aria-hidden="true">28.1.4.</strong> Proptest_runner</a></li><li class="chapter-item "><a href="../../tests/test_structures/test_fixture/test-fixture.html"><strong aria-hidden="true">28.1.5.</strong> Fixture</a></li></ol></li><li class="chapter-item "><a href="../../tests/tests_samples/test-samples.html"><strong aria-hidden="true">28.2.</strong> Samples</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../../unsafe/UNSAFE.html"><strong aria-hidden="true">29.</strong> UNSAFE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../unsafe/extern-ffi/EXTERN-FFI.html"><strong aria-hidden="true">29.1.</strong> EXTERN_FFI</a></li><li class="chapter-item "><a href="../../unsafe/safe-abstraction/SAFE_ABSTRACTION.html"><strong aria-hidden="true">29.2.</strong> SAFE_ABSTRACTION</a></li><li class="chapter-item "><a href="../../unsafe/safe-static-mut/SAFE_STATIC_MUT.html"><strong aria-hidden="true">29.3.</strong> SAFE_STATIC_MUT</a></li><li class="chapter-item "><a href="../../unsafe/unsafe-thread/THREAD_UNSAFE.html"><strong aria-hidden="true">29.4.</strong> THREAD_UNSAFE</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../../macro/MACRO.html"><strong aria-hidden="true">30.</strong> MACRO</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../../module/MODULE.html"><strong aria-hidden="true">31.</strong> MOUDULE</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../../memory/MEMORY.html"><strong aria-hidden="true">32.</strong> MEMORY</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../memory/allocator/ALLOCATOR.html"><strong aria-hidden="true">32.1.</strong> ALLOCATOR</a></li><li class="chapter-item "><a href="../../memory/piston/PISTON.html"><strong aria-hidden="true">32.2.</strong> PISTON</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../../idioms/IDIOMS.html"><strong aria-hidden="true">33.</strong> IDIOMS</a></li><li class="chapter-item expanded "><a href="../../grammer/GRAMMER.html"><strong aria-hidden="true">34.</strong> GRAMMER</a></li><li class="chapter-item expanded "><a href="../../brain-teaser/BRAIN_TREASER.html"><strong aria-hidden="true">35.</strong> BRAIN_TREASER</a></li><li class="chapter-item expanded "><a href="../../questions/QUESTIONS.html"><strong aria-hidden="true">36.</strong> QUESTIONS</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../questions/triplebyte/TBYTE.html" class="active"><strong aria-hidden="true">36.1.</strong> TBYTE</a></li></ol></li><li class="chapter-item expanded "><a href="../../algorithm/ALGORITHM.html"><strong aria-hidden="true">37.</strong> ALGORITHM</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust-All-In-One(A.R)</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/arman2develop/rust-all-in-one/tree/main/workspace" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/arman2develop/rust-all-in-one/edit/main/workspace/./workspace//questions/triplebyte/TBYTE.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>[1] resolve the problem?</p>
+<p>[1.x]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring"> fn main(){
+</span>let mut favorite_foods = vec! [&quot;potato&quot;, &quot;tomato&quot;];
+let mut healthy_foods = &amp;mut favorite_foods;
+healthy_foods.push(&quot;carrot&quot;);
+let mut grocery_list = &amp;mut favorite_foods;//error[E0499]: cannot borrow `favorite_foods` as mutable more than once at a time
+grocery_list.push(&quot;cookies&quot;);
+println! (&quot;Healthy Foods: &quot;);
+for food in healthy_foods {
+    println!(&quot;{}&quot;, food);
+}
+println! (&quot;Grocery List:&quot;);
+for food in grocery_list {
+    println!(&quot;{}&quot;, food);
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>[1.1] favorite foods does not need to be mutable.
+[1.2] healthy foods does not need to be mutable.
+[1.3] favorite foods is already mutable.
+<strong>[1.4]</strong> favorite foods is mutably borrowed twice.</p>
+<hr />
+<p>[2] You’re writing a function that returns the first word of a sentence. But the compiler returns an error. Some lifetimes can be elided, and others must be specified. What lifetimes need to be specified in the function below?</p>
+<p><strong>[2.1]</strong></p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring"> fn main(){
+</span>fn first_word&lt;'a&gt;(sentence: &amp;'a str, separator: &amp;'a str) -&gt; &amp;'a str {
+    let word: &amp;'a str = sentence
+                            .split(separator)
+                            .next()
+                            .unwrap();
+    word
+}
+
+println!(&quot;{}&quot;,first_word(&quot;arman riazi&quot;,&quot; &quot;));
+
+<span class="boring">}
+</span></code></pre></pre>
+<p>[2.2]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring"> fn main(){
+</span>fn first_word(sentence: &amp;str, separator: &amp;str) -&gt; &amp;str {
+    let word: &amp;'a str = sentence
+                            .split(separator)
+                            .next()
+                            .unwrap();
+    word
+}
+
+println!(&quot;{}&quot;,first_word(&quot;arman riazi&quot;,&quot; &quot;));
+
+<span class="boring">}
+</span></code></pre></pre>
+<p>[2.3]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring"> fn main(){
+</span>    fn first_word&lt;'a&gt;(sentence: &amp;str, separator:  &amp;str) -&gt; &amp;'a str {
+    let word: &amp;str = sentence
+                            .split(separator)
+                            .next()
+                            .unwrap();
+        word
+    }
+    println!(&quot;{}&quot;,first_word(&quot;arman riazi&quot;,&quot; &quot;));
+<span class="boring">}
+</span></code></pre></pre>
+<p>[2.4]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring"> fn main(){
+</span>    fn first_word&lt;'a&gt;(sentence: &amp;'a str, separator:  &amp;'a str) -&gt; &amp;str {
+    let word: &amp;str = sentence
+                            .split(separator)
+                            .next()
+                            .unwrap();
+        word
+    }
+    println!(&quot;{}&quot;,first_word(&quot;arman riazi&quot;,&quot; &quot;));
+<span class="boring">}
+</span></code></pre></pre>
+<hr />
+<p>[3] You want to count the letters in a word. Choose the best option?</p>
+<p><strong>[3.1]</strong></p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring"> fn main(){
+</span>    use std::collections::HashMap;
+    let word = &quot;internationalization&quot;;
+    let mut letter_count = HashMap::new();
+
+    for letter in word.chars() {
+
+        let count = letter_count.entry (letter).or_insert(0);
+        *count += 1;
+    }
+    for (letter, count) in &amp;letter_count {
+        println!(&quot;{}: {}&quot;, letter, count);
+    }
+<span class="boring">}
+</span></code></pre></pre>
+<p>[3.2]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring"> fn main(){
+</span>    use std::collections::HashMap;
+    let word = &quot;internationalization&quot;;
+    let mut letter_count = HashMap::new();
+
+    for letter in word.chars() {
+            match &amp;mut letter_count.get(&amp;letter) {
+                Some (count) =&gt; *count += 1,
+        }
+         =&gt; {letter_count.insert(letter, 1);},
+    }    
+    for (letter, count) in &amp;letter_count {
+        println!(&quot;{}: {}&quot;, letter, count);
+    }
+<span class="boring">}
+</span></code></pre></pre>
+<p>[3.3]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring"> fn main(){
+</span>    use std::collections::HashMap;
+    let word = &quot;internationalization&quot;;
+    let mut letter_count = HashMap::new();
+
+    for letter in word.chars() {                    
+        if let Some (count) = letter_count.get(&amp;letter) {
+               letter_count.insert(letter, count + 1);
+           } else {
+            letter_count.insert(letter, 1);
+        }        
+    }
+    for (letter, count) in &amp;letter_count {
+        println!(&quot;{}: {}&quot;, letter, count);
+    }
+<span class="boring">}
+</span></code></pre></pre>
+<p>[3.4]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring"> fn main(){
+</span>    use std::collections::HashMap;
+    let word = &quot;internationalization&quot;;
+    let mut letter_count = HashMap::new();
+
+    for letter in word.chars() {                    
+      match &amp;mut letter_count.get(&amp;letter){
+        Some(count)=&gt; *count +=1,
+        _ =&gt; {letter_count.insert(letter,1);}
+      }
+    }
+    for (letter, count) in &amp;letter_count {
+        println!(&quot;{}: {}&quot;, letter, count);
+    }
+<span class="boring">}
+</span></code></pre></pre>
+<p>[4] You have a program to show the best vacation spots. It has multiple threads so eventually the API team will update the list separately from the UX team. How does move help us write better code in this code snippet?</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring"> fn main(){
+</span>let mut vacation_spots= vec! [&quot;New York City&quot;, &quot;Yosemite&quot;, &quot;Monterey&quot;];
+let handle = std::thread::spawn( move || {
+    for spot in vacation_spots {
+        println!(&quot;{}&quot;, spot);
+    }
+    });
+    vacation_spots.remove(1);// Error value borrowed here after move
+    handle.join().unwrap();
+<span class="boring">}
+</span></code></pre></pre>
+<p>[4.1] The value vacation_spots was moved and then mutated in another thread. This helps us prevent race conditions.</p>
+<p>[4.2] Without the move keyword, the join().unwrap() would always panic. This helps us write code that does not panic.</p>
+<p><strong>[4.3]</strong> Without the move keyword, the compiler wouldn’t know the thread might use vacation_spots after it was mutated. This helps us prevent borrowing after moving values.</p>
+<p>[4.4] The closure is moved. This helps us make sure the closure used only once.</p>
+<hr />
+<p>[5] What does the following program do?</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring"> fn main(){
+</span>use std::process::Stdio;
+use std::{io::ErrorKind, error::Error};
+//unimplemented!();
+
+let mut echo=std::process::Command::new(&quot;echo&quot;)
+    .arg(&quot;one two three&quot;)
+    .stdout(Stdio::piped())
+    .spawn()?;
+
+let wc = std::process::Command::new(&quot;wc&quot;)
+    .arg(&quot;-w&quot;)
+    .stdin(Stdio::piped())
+    .stdout(Stdio::inherit())
+    .spawn()?;
+
+let mut wc_in= true;
+let echo_out=&amp;mut wc.stdin.ok_or_else(|| Error::from(ErrorKind::BrokenPipe))?;
+
+echo.stdout.as_mut().ok_or_else(|| Error::from(ErrorKind::BrokenPipe))?;
+
+std::io::copy(echo_out, &amp;mut wc_in)?;
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p><strong>[5.1]</strong></p>
+</blockquote>
+<ol>
+<li>Pipes echo’s stdout to the program’s stdin. </li>
+<li>Pipes the program’s stdin into wc.</li>
+<li>Copies echo’s stdout into wc’s stdin.</li>
+</ol>
+<blockquote>
+<p>[5.2]</p>
+</blockquote>
+<ol>
+<li>Starts echo.</li>
+<li>Pipes wc’s stdout to the program’s stdout. </li>
+<li>Copies echo’s stdout into wc’s stdin.</li>
+</ol>
+<blockquote>
+<p>[5.3]</p>
+</blockquote>
+<ol>
+<li>Pipes the program’s stdin into echo. </li>
+<li>Pipes wc’s stdout to the program’s stdin. </li>
+<li>Copies echo’s stdout into wc’s stdin.</li>
+</ol>
+<blockquote>
+<p>[5.4]</p>
+</blockquote>
+<ol>
+<li>Starts echo.</li>
+<li>Starts wc.</li>
+<li>Copies echo’s stdout into wc’s stdin. </li>
+<li>Nothing is printed to the console.</li>
+</ol>
+<hr />
+<p>[6] Which of the following snippetes sets result to the number 12?</p>
+<p>[6.1]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring"> fn main(){
+</span>let numbers = [1,3,6];
+let result: u32 = numbers
+            .iter()
+            .filter(|&amp;x| x % 2 ==0)
+            .flat_map(|x| x *  2)
+            .sum();
+assert_eq!(result,12);
+<span class="boring">}
+</span></code></pre></pre>
+<p><strong>[6.2]</strong></p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring"> fn main(){
+</span>let numbers = [1,3,6];
+let result: u32 = numbers
+            .iter()
+            .filter(|&amp;x| x % 2 ==0)
+            .map(|x| x *  2)
+            .sum();
+assert_eq!(result,12);
+<span class="boring">}
+</span></code></pre></pre>
+<p>[6.3]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring"> fn main(){
+</span>let numbers = [1,3,6];
+let result: u32 = numbers
+            .iter()            
+            .map(|x| x *  2)
+            .filter(|x| x % 2 == 0)
+            .sum();
+assert_eq!(result,12);
+<span class="boring">}
+</span></code></pre></pre>
+<p>[6.4]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring"> fn main(){
+</span>let numbers = [1,3,6];
+let result: u32 = numbers
+            .iter()            
+            .skip(1)
+            .take(1)
+            .map(|x| x *  2)            
+            .sum();
+assert_eq!(result,12);
+<span class="boring">}
+</span></code></pre></pre>
+<hr />
+<p>[7] How can you pass a string to these functions?</p>
+<p>[7.1]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>let name : String= &quot;Smith&quot;.to_string();
+greet_person(name);
+show_schedule(name);
+<span class="boring">}
+</span>fn greet_person(name:String){
+    println!(&quot;Hello {}&quot;,name);
+}
+fn show_schedule(name:String){
+    println!(&quot;{}'s schedule is : A,B,C&quot;,name);
+}
+</code></pre></pre>
+<p>[7.2]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>let name : &amp;str = &quot;Smith&quot;;
+greet_person(name);
+show_schedule(name);
+<span class="boring">}
+</span>fn greet_person(name:String){
+    println!(&quot;Hello {}&quot;,name);
+}
+fn show_schedule(name:String){
+    println!(&quot;{}'s schedule is : A,B,C&quot;,name);
+}
+</code></pre></pre>
+<p><strong>[7.3]</strong></p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>let name : &amp;str = &quot;Smith&quot;;
+greet_person(name);
+show_schedule(name);
+<span class="boring">}
+</span>fn greet_person(name:&amp;str){
+    println!(&quot;Hello {}&quot;,name);
+}
+fn show_schedule(name:&amp;str){
+    println!(&quot;{}'s schedule is : A,B,C&quot;,name);
+}
+</code></pre></pre>
+<p>[7.4]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>let name : String= String::from(&quot;Smith&quot;);
+greet_person(name);
+show_schedule(name);
+<span class="boring">}
+</span>fn greet_person(name:String){
+    println!(&quot;Hello {}&quot;,name);
+}
+fn show_schedule(name:String){
+    println!(&quot;{}'s schedule is : A,B,C&quot;,name);
+}
+</code></pre></pre>
+<hr />
+<p>[8] Which of the following is <strong>NOT equvalent</strong>  to the trait bounds below?</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn communicate&lt;T: Speak + Listen&gt;(thing: &amp;T){
+    //..
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>[8.1]</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn communicate&lt;T&gt;(thing: &amp;T)
+    where T: Speak,
+          T: Listen
+{
+    //..
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>[8.2]</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn communicate&lt;T&gt;(thing: &amp;(impl Speak + Listen)){
+    //..
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p><strong>[8.3]</strong></p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn communicate&lt;T&gt;(thing: &amp;(Speak + Listen)){
+    //..
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>[8.4]</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn communicate&lt;T&gt;(thing: &amp;T){
+    where T: Speak + Listen
+    //..
+}
+<span class="boring">}
+</span></code></pre></pre>
+<hr />
+<p>[9] How can you modify as item in Vec inside a loop?</p>
+<p>[9.1]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#[derive(Debug)]
+</span><span class="boring">struct Items{
+</span><span class="boring">   is_ordered:bool
+</span><span class="boring">}
+</span><span class="boring">fn main(){
+</span><span class="boring">   let it1= Items{is_ordered:true};
+</span><span class="boring">   let it2= Items{is_ordered:true};
+</span><span class="boring">   let items: Vec&lt;Items&gt;= vec![it1,it2];
+</span>    for item in &amp;mut items{
+        item.is_ordered = true;
+    }
+<span class="boring">}
+</span></code></pre></pre>
+<p>[9.2]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#[derive(Debug)]
+</span><span class="boring">struct Items{
+</span><span class="boring">   is_ordered:bool
+</span><span class="boring">}
+</span><span class="boring">fn main(){
+</span><span class="boring">   let it1= Items{is_ordered:true};
+</span><span class="boring">   let it2= Items{is_ordered:true};
+</span><span class="boring">   let items: Vec&lt;Items&gt;= vec![it1,it2];
+</span>    for mut item in &amp;items{
+        item.is_ordered = true;
+    }
+<span class="boring">}
+</span></code></pre></pre>
+<p><strong>[9.3]</strong></p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#[derive(Debug)]
+</span><span class="boring">struct Items{
+</span><span class="boring">   is_ordered:bool
+</span><span class="boring">}
+</span><span class="boring">fn main(){
+</span><span class="boring">   let it1= Items{is_ordered:true};
+</span><span class="boring">   let it2= Items{is_ordered:true};
+</span><span class="boring">   let items: Vec&lt;Items&gt;= vec![it1,it2];
+</span>    for mut item in items{
+        item.is_ordered = true;
+    }
+<span class="boring">}
+</span></code></pre></pre>
+<p>[9.4]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#[derive(Debug)]
+</span><span class="boring">struct Items{
+</span><span class="boring">   is_ordered:bool
+</span><span class="boring">}
+</span><span class="boring">fn main(){
+</span><span class="boring">   let it1= Items{is_ordered:true};
+</span><span class="boring">   let it2= Items{is_ordered:true};
+</span><span class="boring">   let items: Vec&lt;Items&gt;= vec![it1,it2];
+</span>    for &amp;mut item in items{
+        item.is_ordered = true;
+    }
+<span class="boring">}
+</span></code></pre></pre>
+<hr />
+<p>[10] Which code snippet works?</p>
+<p>[10.1]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#[derive(Debug)]
+</span> enum Staff{
+    CEO,
+    Employee { boss: Option&lt;Staff&gt; } 
+ }
+<span class="boring">fn main(){
+</span>   let s= Staff:: Employee;
+<span class="boring">}
+</span></code></pre></pre>
+<p>[10.2]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#[derive(Debug)]
+</span> enum Staff{
+    CEO,
+    Employee { boss: Staff } 
+ }
+<span class="boring">fn main(){
+</span>   let s= Staff:: Employee;
+<span class="boring">}
+</span></code></pre></pre>
+<p>[10.3]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#[derive(Debug)]
+</span> enum Staff{    
+    boss: Option&lt;Staff&gt;
+ }
+<span class="boring">fn main(){
+</span>   let s= Staff::boss;
+<span class="boring">}
+</span></code></pre></pre>
+<p><strong>[10.4]</strong></p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">#[derive(Debug)]
+</span>struct Employee{
+    boss: Staff
+}
+ enum Staff{    
+    CEO,
+    Regular(Employee),
+ }
+<span class="boring">fn main(){
+</span>   let s= Staff::Regular;
+<span class="boring">}
+</span></code></pre></pre>
+<hr />
+<p>[11] You have some data that needs to be processed multi-threaded. However when trying to save the data into a HashMap the compiler throws an error saying hash_map was moved. How do you synchronize and get data out of threads?</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>let mut hash_map: std::collections::HashMap&lt;u32, u32&gt;= std::collections::HashMap::new();
+for i in 1..=3 {
+    std::thread::spawn (move || { //error 
+                    let result = i * 7;
+                    hash_map.insert(i, result);
+                });
+}
+for (i, number) in &amp;hash_map {
+    println!(&quot;{}* 7 = {}&quot;, i, number);
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p><strong>[11.1]</strong></p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>let thread_count = 3;
+let (tx, rx) = std::sync::mpsc::channel();
+for i in 1..=thread_count {
+    let tx = tx.clone();
+    std::thread::spawn (move || {
+        let result = i * 7;
+        let _= tx.send((i, result));
+    });
+}
+    for _ in 1..=thread_count {
+        let (i, number) = rx.recv().unwrap();
+        println!(&quot;{}* 7 = {}&quot;, i, number);
+    }
+<span class="boring">}
+</span></code></pre></pre>
+<p>[11.2]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>let mutex = std::sync::Mutex::new(std::collections::HashMap::new());
+ let mut handles = vec! [];
+for i in 1..3 {
+    let handle = std::thread::spawn (move || {
+        let result = i * 7;
+        mutex.lock().unwrap().insert(i, result);
+    });
+    handles.push(handle);
+}
+for child in handles {
+    let _= child.join();
+}
+let hash_map=mutex.lock().unwrap();
+for (i, number) in &amp;(*hash_map) {
+    println!(&quot;{}* 7 = {}&quot;, i, number);
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>[11.3]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>use std::sync:: {Arc, Mutex};
+let hash_map = Arc::new(Mutex::new(std::collections::HashMap::new()));
+for i in 1..3 {
+    let arc_map = hash_map.clone();
+    std::thread::spawn (move || {
+        let result = i * 7;
+        arc_map.lock().unwrap().insert(i, result);
+    });
+}
+for (i, number) in &amp;(*hash_map.lock().unwrap()) {
+    println!(&quot;{}* 7 = {}&quot;, i, number);
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>[11.4]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>let mut hash_map: std::collections::HashMap&lt;u32, u32&gt;= std::collections::HashMap::new();
+for i in 1..=3 {
+    let mut result = 0;
+    std::thread::spawn (move || {
+        result = i * 7;
+    });
+     hash_map.insert(i, result);
+}
+for (i, number) in &amp;hash_map {
+    println!(&quot;{}* 7 = {}&quot;, i, number);
+}
+<span class="boring">}
+</span></code></pre></pre>
+<hr />
+<p>[12] What is the output this puzzle?</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>let a = Some(&quot;a&quot;);
+let b = Some(&quot;b&quot;);
+let c = Some(&quot;c&quot;);
+let d = Some(&quot;d&quot;);
+let a_or_d = a.unwrap_or (d.unwrap());
+//println!(&quot;a_or_d  {}&quot;, a_or_d.clone()); //return a
+let default_not = || b.iter().next(); //return NONE
+let c_mapped = |_| Some(&amp;a_or_d);
+let result= c.map_or_else(default_not, c_mapped).unwrap();
+println!(&quot;Result {}&quot;, result);
+<span class="boring">}
+</span></code></pre></pre>
+<p><strong>[12.1]</strong>
+a
+[12.2]
+b
+[12.3]
+thread ‘main’ panicked at ’called ‘Option: : unwrap()’ on a ‘None’ value’, src/main.rs:13:7’
+[12.4]
+d</p>
+<hr />
+<p>[13] There is a logging function called log that takes a message: &amp;str argument. You need to use this function to print “123”. Which of the following methods work?</p>
+<p>[13.1]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>
+fn log(message: &amp;str) {
+println!(&quot;{}&quot;, message);
+}
+
+let numbers = &quot;123&quot;;
+log(&amp;numbers[0..4]);
+<span class="boring">}
+</span></code></pre></pre>
+<p>[13.2]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>
+fn log(message: &amp;str) {
+println!(&quot;{}&quot;, message);
+}
+
+let numbers = &quot;0123&quot;;
+log(&amp;numbers[1:4]);
+<span class="boring">}
+</span></code></pre></pre>
+<p><strong>[13.3]</strong></p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>
+fn log(message: &amp;str) {
+println!(&quot;{}&quot;, message);
+}
+
+let numbers = &quot;1234&quot;;
+log(&amp;numbers[..3]);
+<span class="boring">}
+</span></code></pre></pre>
+<p><strong>[13.4]</strong></p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>
+fn log(message: &amp;str) {
+println!(&quot;{}&quot;, message);
+}
+
+let numbers = &quot;01234&quot;;
+log(&amp;numbers[1..4]);
+<span class="boring">}
+</span></code></pre></pre>
+<hr />
+<p>[14] You want to print the status of a request in the following format:</p>
+<blockquote>
+<p><code>success: true, errors: 0, message: success</code></p>
+</blockquote>
+<blockquote>
+<p>Which of the following is <strong>NOT valid Rust</strong>?</p>
+</blockquote>
+<p>[14.1]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>let result = (true, 0, &quot;success&quot;);
+let (success, errors, message) = result;
+println!(&quot;success: {}, errors: {}, message: {}&quot;, success, errors, message);
+<span class="boring">}
+</span></code></pre></pre>
+<p>[14.2]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>let result: (bool, i32, &amp;str) = (true, 0, &quot;success&quot;);
+println! (&quot;success: {}, errors: {}, message: {}&quot;, result.0, result.1, result.2);
+<span class="boring">}
+</span></code></pre></pre>
+<p>[14.3]</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>let result = (true, 0, &quot;success&quot;);
+println! (&quot;success: {}, errors: {}, message: {}&quot;, result.0, result.1, result.2);
+<span class="boring">}
+</span></code></pre></pre>
+<p><strong>[14.4]</strong></p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>let result = [true, 0, &quot;success&quot;];
+println! (&quot;success: {}, errors: {}, message: {}&quot;, result[0], result[1], result[2]);
+<span class="boring">}
+</span></code></pre></pre>
+<hr />
+<p>[15] went on vacation, and the lead developer is not happy with the work they delivered below. The lead says the code “crashes all over the place, hides the issue from the calling function, and panics unrecoverably. They needed an expert so they called you in to fix it. Which function will you deliver?</p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>fn export_todo (filename: &amp;str, todo_list: &amp;[&amp;str], done_list: &amp;[&amp;str]) {
+    let mut file= match std::fs::File::create(filename) {
+        Err(e) =&gt; panic!(&quot;{}&quot;, e),
+        Ok (f) =&gt; f,
+    };
+
+    match file.write_all( b&quot;# To Do List\n&quot;) {
+        Err(e) =&gt; panic!(&quot;{}&quot;, e),
+        Ok (()) =&gt; (),
+    }
+    match file.write_all(b&quot;## Next\n&quot;) {
+        Err(e) =&gt; panic!(&quot;{}&quot;, e),
+        Ok(()) =&gt; (),
+    }
+    for item in todo_list.iter() {
+        match file.write_all(format! (&quot;- [] {}\n&quot;, item).as_bytes()) {
+            Err(e) =&gt; panic!(&quot;{}&quot;, e),
+            Ok (()) =&gt; (),
+        }
+    }
+}
+
+<span class="boring">}
+</span></code></pre></pre>
+<p><strong>[15.x]</strong></p>
+<pre><pre class="playground"><code class="language-rust edition2021"><span class="boring">fn main(){
+</span>    use std::io::Write;
+    //Because of return std::io::Result&lt;()&gt; is a good answer. anyoption that do not have Result will not be answer
+    fn export_todo(filename: &amp;str, todo_list: &amp;[&amp;str], done_list: &amp;[&amp;str]) -&gt; std::io::Result&lt;()&gt; {
+
+        let mut file = std::fs::File::create(filename)?;
+        file.write_all(b&quot;# To Do List \n&quot;)?;
+        file.write_all(b&quot;## Next\n&quot;)?;
+
+        for item in todo_list.iter() {
+            file.write_all(format! (&quot;- [ ] {}\n&quot;, item).as_bytes())?
+        }
+
+        file.write_all(b&quot;## Done\n&quot;)?;
+        for item in done_list.iter() {
+            file.write_all(format! (&quot;- [x] {}\n&quot;, item).as_bytes())?
+        }
+    Ok(())
+    }
+<span class="boring">}
+</span></code></pre></pre>
+<hr />
+<p>[16] Your friend that runs a tool rental company needs a program to calculate customer orders. What is the grand total printed by this program?</p>
+<pre><pre class="playground"><code class="language-rust edition2021">struct Rental {
+    rate: u32,
+    days: u32,
+    half_off: bool,
+}
+
+impl Rental {
+ fn subtotal(&amp;self) -&gt; u32 {
+    let subtotal = self.rate * self.days;
+    if self.half_off {
+        return subtotal / 2;
+    }
+  subtotal
+ }
+}
+
+fn main(){
+let days = 10;
+let saw = Rental{days, rate: 15, half_off: false };
+let drill = Rental{rate:10, ..saw};
+let trailer = Rental{ half_off: true, ..drill};
+let mut grand_total=0;
+for rental in [saw, drill, trailer].iter() {
+    grand_total += rental.subtotal();
+}
+println! (&quot;grand total: ${}&quot;, grand_total);
+}
+</code></pre></pre>
+<p><strong>[16.1]</strong> grand total: $300
+[16.2] grand total: $125
+[16.3] grand total: $150
+[16.4] This is not valid rust code.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../questions/QUESTIONS.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../algorithm/ALGORITHM.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../questions/QUESTIONS.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../algorithm/ALGORITHM.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

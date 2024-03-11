@@ -1,0 +1,406 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>MEMORY - Rust-All-In-One(A.R)</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../rust/RUST.html"><strong aria-hidden="true">1.</strong> RUST</a></li><li class="chapter-item expanded "><a href="../TEMPLATE.html"><strong aria-hidden="true">2.</strong> TEMPLATE</a></li><li class="chapter-item expanded "><a href="../shared/SHARED.html"><strong aria-hidden="true">3.</strong> SHARED</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../borrowchecker/BORROWCHECKER.html"><strong aria-hidden="true">4.</strong> BORROWCHECKER</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../borrowchecker/semantic/SEMANTIC.html"><strong aria-hidden="true">4.1.</strong> SEMANTIC</a></li><li class="chapter-item "><a href="../borrowchecker/lifetime/LIFETIME.html"><strong aria-hidden="true">4.2.</strong> LIFETIME</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../borrowchecker/lifetime/static/LIFETIME_STATIC.html"><strong aria-hidden="true">4.2.1.</strong> STATIC</a></li><li class="chapter-item "><a href="../borrowchecker/lifetime/elision/LIFETIME_ELISION.html"><strong aria-hidden="true">4.2.2.</strong> ELISION</a></li><li class="chapter-item "><a href="../borrowchecker/lifetime/dangling/LIFETIME_DANGLING.html"><strong aria-hidden="true">4.2.3.</strong> DANGLING</a></li><li class="chapter-item "><a href="../borrowchecker/lifetime/generic/LIFETIME_GENERIC.html"><strong aria-hidden="true">4.2.4.</strong> GENERIC</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../benchmark/BENCHMARK.html"><strong aria-hidden="true">5.</strong> BENCHMARK</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../cpu/CPU.html"><strong aria-hidden="true">6.</strong> CPU</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../pointers/POINTERS.html"><strong aria-hidden="true">7.</strong> POINTERS</a></li><li class="chapter-item expanded "><a href="../pointers/smartpointer/SMARTPOINTER.html"><strong aria-hidden="true">8.</strong> SMARTPOINTER</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../pointers/smartpointer/compiletime/shared_owner_locally/rc/RC.html"><strong aria-hidden="true">8.1.</strong> RC</a></li><li class="chapter-item "><a href="../pointers/smartpointer/compiletime/box/BOX.html"><strong aria-hidden="true">8.2.</strong> BOX</a></li><li class="chapter-item "><a href="../pointers/smartpointer/runtime/shared_locally_mutability/ref-cell/REF_CELL.html"><strong aria-hidden="true">8.3.</strong> REF_CELL</a></li><li class="chapter-item "><a href="../pointers/smartpointer/ops/OPS.html"><strong aria-hidden="true">8.4.</strong> OPS</a></li><li class="chapter-item "><a href="../pointers/smartpointer/compiletime/cow/COW.html"><strong aria-hidden="true">8.5.</strong> COW</a></li><li class="chapter-item "><a href="../thread/sync/arc/ARC.html"><strong aria-hidden="true">8.6.</strong> ARC</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../process/PROCESS.html"><strong aria-hidden="true">9.</strong> PROCESS</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../collection/COLLECTION.html"><strong aria-hidden="true">10.</strong> COLLECTION</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../collection/hashmap/HASHMAP.html"><strong aria-hidden="true">10.1.</strong> HASHMAP</a></li><li class="chapter-item "><a href="../collection/slice/SLICE.html"><strong aria-hidden="true">10.2.</strong> SLICE</a></li><li class="chapter-item "><a href="../collection/vec/VECTOR.html"><strong aria-hidden="true">10.3.</strong> VECTOR</a></li><li class="chapter-item "><a href="../pointers/smartpointer/compiletime/shared_owner_locally/rc/linkedlist/LINKEDLIST.html"><strong aria-hidden="true">10.4.</strong> LINKEDLIST</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../commandline/COMMANDLINE.html"><strong aria-hidden="true">11.</strong> COMMANDLINE</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../data/DATA.html"><strong aria-hidden="true">12.</strong> DATA</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../data/operator/OPERATOR.html"><strong aria-hidden="true">12.1.</strong> OPERATOR</a></li><li class="chapter-item "><a href="../data/convert/CONVERT.html"><strong aria-hidden="true">12.2.</strong> CONVERT</a></li><li class="chapter-item "><a href="../data/io/IO.html"><strong aria-hidden="true">12.3.</strong> IO</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../data/io/file/FILE.html"><strong aria-hidden="true">12.3.1.</strong> FILE</a></li></ol></li><li class="chapter-item "><a href="../data/regex/REGEX.html"><strong aria-hidden="true">12.4.</strong> REGEX</a></li><li class="chapter-item "><a href="../data/arithmetic/ARITHMETIC.html"><strong aria-hidden="true">12.5.</strong> ARITHMETIC</a></li><li class="chapter-item "><a href="../data/serde/SERDE.html"><strong aria-hidden="true">12.6.</strong> SERDE</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../duplication/Duplication.html"><strong aria-hidden="true">13.</strong> Duplication</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../duplication/copy-clone/COPY-CLONE.html"><strong aria-hidden="true">13.1.</strong> COPY_CLONE</a></li></ol></li><li class="chapter-item expanded "><a href="../pointers/smartpointer/compiletime/shared_owner/rc/RC.html"><strong aria-hidden="true">14.</strong> RC</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../errorhandling/ERROR_HANDLING.html"><strong aria-hidden="true">15.</strong> ERROR_HANDLING</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../errorhandling/non-recoverable/ERROR_NONRECOVERABLE.html"><strong aria-hidden="true">15.1.</strong> ERROR_NONRECOVERABLE</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../feature/FEATURE.html"><strong aria-hidden="true">16.</strong> FEATURE</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../flowcontrol/FLOWCONTROL.html"><strong aria-hidden="true">17.</strong> FLOWCONTROL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../flowcontrol/for/FOR.html"><strong aria-hidden="true">17.1.</strong> FOR</a></li><li class="chapter-item "><a href="../flowcontrol/loop/LOOP.html"><strong aria-hidden="true">17.2.</strong> LOOP</a></li><li class="chapter-item "><a href="../flowcontrol/while/WHILE.html"><strong aria-hidden="true">17.3.</strong> WHILE</a></li><li class="chapter-item "><a href="../flowcontrol/match/MATCH.html"><strong aria-hidden="true">17.4.</strong> MATCH</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../functional-programming/FUNC-PROG.html"><strong aria-hidden="true">18.</strong> FUNCTION PROGRAMMING</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../functional-programming/closure/CLOSURE.html"><strong aria-hidden="true">18.1.</strong> CLOSURE</a></li><li class="chapter-item "><a href="../functional-programming/function/FUNCTION.html"><strong aria-hidden="true">18.2.</strong> FUNCTION</a></li><li class="chapter-item "><a href="../functional-programming/lazy/LAZY.html"><strong aria-hidden="true">18.3.</strong> LAZY</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../libc/LIBC.html"><strong aria-hidden="true">19.</strong> LIBC</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../network/NETWORK.html"><strong aria-hidden="true">20.</strong> NETWORK</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../oop/OOP.html"><strong aria-hidden="true">21.</strong> OOP</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../oop/trait/TRAIT.html"><strong aria-hidden="true">21.1.</strong> TRAIT</a></li></ol></li><li class="chapter-item expanded "><a href="../oop/design_patterns/DESIGN_PATTERN.html"><strong aria-hidden="true">22.</strong> DESIGN_PATTERN</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../oop/design_patterns/behavioral/state-pattern/STATE_PATTERN.html"><strong aria-hidden="true">22.1.</strong> STATE_PATTERN</a></li><li class="chapter-item "><a href="../oop/design_patterns/behavioral/BEHAVIOARAL.html"><strong aria-hidden="true">22.2.</strong> BEHAVIOARAL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../oop/design_patterns/behavioral/lpxxn/lpxxn-behavioral.html"><strong aria-hidden="true">22.2.1.</strong> LPXXN</a></li><li class="chapter-item "><a href="../oop/design_patterns/behavioral/process/PROCESS.html"><strong aria-hidden="true">22.2.2.</strong> PROCESS</a></li></ol></li><li class="chapter-item "><a href="../oop/design_patterns/creational/CREATIONAL.html"><strong aria-hidden="true">22.3.</strong> CREATIONAL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../oop/design_patterns/creational/lpxxn/lpxxn-creational.html"><strong aria-hidden="true">22.3.1.</strong> LPXXN</a></li></ol></li><li class="chapter-item "><a href="../oop/design_patterns/structural/STRUCTURAL.html"><strong aria-hidden="true">22.4.</strong> STRUCTRUAL</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../oop/design_patterns/structural/lpxxn/lpxxn-structural.html"><strong aria-hidden="true">22.4.1.</strong> LPXXN</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../trait/TRAIT.html"><strong aria-hidden="true">23.</strong> TRAIT</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../trait/associate-type-or-trait/ASSOCIATE.html"><strong aria-hidden="true">23.1.</strong> ASSOCIATE</a></li><li class="chapter-item "><a href="../trait/inheritance/INHERITANCE.html"><strong aria-hidden="true">23.2.</strong> INHERITANCE</a></li><li class="chapter-item "><a href="../trait/built-in/BUILT_IN.html"><strong aria-hidden="true">23.3.</strong> BUILT-IN</a></li><li class="chapter-item "><a href="../trait/shared-behavior/SHARED_BEHAVIOR.html"><strong aria-hidden="true">23.4.</strong> SHARED_BEHAVIOR</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../trait/shared-behavior/builtin-trait/BUILTIN-TRAIT.html"><strong aria-hidden="true">23.4.1.</strong> BUILTIN-TRAIT</a></li><li class="chapter-item "><a href="../trait/shared-behavior/safe-object/SAFEOBJECT.html"><strong aria-hidden="true">23.4.2.</strong> SAFE OBJECT</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../trait/shared-behavior/safe-object/dispatchable/TRAITOBJECT.html"><strong aria-hidden="true">23.4.2.1.</strong> TRAITOBJECT</a></li></ol></li><li class="chapter-item "><a href="../trait/shared-behavior/none-object-safe/NONE_OBJECT_SAFE.html"><strong aria-hidden="true">23.4.3.</strong> NON_OBJECT_SAFE</a></li><li class="chapter-item "><a href="../trait/shared-behavior/aggregator/AGGRIGATOR.html"><strong aria-hidden="true">23.4.4.</strong> AGGRIGATOR</a></li></ol></li><li class="chapter-item "><a href="../trait/shared-behavior/trait-bound/TRAIT_BOUND.html"><strong aria-hidden="true">23.5.</strong> TRAIT_BOUND</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../trait/shared-behavior/trait-bound/operator/OPERATOR.html"><strong aria-hidden="true">23.5.1.</strong> OPERATOR</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../types/M_TYPES.html"><strong aria-hidden="true">24.</strong> TYPES</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../types/generic/GENERIC.html"><strong aria-hidden="true">24.1.</strong> GENERIC</a></li><li class="chapter-item "><a href="../types/return/RETURN.html"><strong aria-hidden="true">24.2.</strong> RETURN</a></li><li class="chapter-item "><a href="../types/static/STATIC.html"><strong aria-hidden="true">24.3.</strong> STATIC</a></li><li class="chapter-item "><a href="../types/wrapper/WRAPPER.html"><strong aria-hidden="true">24.4.</strong> WRAPPER</a></li><li class="chapter-item "><a href="../types/rhs/RHS.html"><strong aria-hidden="true">24.5.</strong> RHS</a></li><li class="chapter-item "><a href="../types/var/VAR.html"><strong aria-hidden="true">24.6.</strong> VAR</a></li><li class="chapter-item "><a href="../types/mscal/M_SCAL.html"><strong aria-hidden="true">24.7.</strong> SCALAR</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../types/mscal/numeric/NUMERIC.html"><strong aria-hidden="true">24.7.1.</strong> NUMERIC</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../types/mscal/numeric/primitive/PRIMITIVE.html"><strong aria-hidden="true">24.7.1.1.</strong> PRIMITIVE</a></li><li class="chapter-item "><a href="../types/mscal/numeric/num/NUM.html"><strong aria-hidden="true">24.7.1.2.</strong> NUM</a></li></ol></li><li class="chapter-item "><a href="../types/mscal/non_numeric/NON_NUMERIC.html"><strong aria-hidden="true">24.7.2.</strong> NON_NUMERIC</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../types/mscal/non_numeric/string/STRING.html"><strong aria-hidden="true">24.7.2.1.</strong> STRING</a></li><li class="chapter-item "><a href="../types/mscal/non_numeric/char/CHAR.html"><strong aria-hidden="true">24.7.2.2.</strong> CHAR</a></li></ol></li></ol></li><li class="chapter-item "><a href="../types/compound/COMPOUND.html"><strong aria-hidden="true">24.8.</strong> COMPOUND</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../types/compound/array/ARRAY.html"><strong aria-hidden="true">24.8.1.</strong> ARRAY</a></li><li class="chapter-item "><a href="../types/compound/tuple/TUPLE.html"><strong aria-hidden="true">24.8.2.</strong> TUPLE</a></li><li class="chapter-item "><a href="../types/compound/union/UNION.html"><strong aria-hidden="true">24.8.3.</strong> UNION</a></li><li class="chapter-item "><a href="../types/compound/struct/STRUCT.html"><strong aria-hidden="true">24.8.4.</strong> STRUCT</a></li><li class="chapter-item "><a href="../types/compound/enum/ENUM.html"><strong aria-hidden="true">24.8.5.</strong> ENUM</a></li><li class="chapter-item "><a href="../types/compound/option/OPTION.html"><strong aria-hidden="true">24.8.6.</strong> OPTION</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../stdmisc/STDMISC.html"><strong aria-hidden="true">25.</strong> STDMISC</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../stdmisc/rust-doc/rd-thread-channel.html"><strong aria-hidden="true">25.1.</strong> thread-channel</a></li><li class="chapter-item "><a href="../stdmisc/rust-doc/rd-path.html"><strong aria-hidden="true">25.2.</strong> path</a></li><li class="chapter-item "><a href="../stdmisc/rust-doc/rd-file.html"><strong aria-hidden="true">25.3.</strong> file</a></li><li class="chapter-item "><a href="../stdmisc/rust-doc/rd-filesystem.html"><strong aria-hidden="true">25.4.</strong> filesystem</a></li><li class="chapter-item "><a href="../stdmisc/rust-doc/rd-command-process.html"><strong aria-hidden="true">25.5.</strong> command-process</a></li><li class="chapter-item "><a href="../stdmisc/rust-doc/rd-ffi.html"><strong aria-hidden="true">25.6.</strong> ffi</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../thread/THREAD.html"><strong aria-hidden="true">26.</strong> THREAD</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../thread/race/RACE.html"><strong aria-hidden="true">26.1.</strong> RACE</a></li><li class="chapter-item "><a href="../thread/rayon/RAYON.html"><strong aria-hidden="true">26.2.</strong> RAYON</a></li><li class="chapter-item "><a href="../thread/sync/ATOMIC.html"><strong aria-hidden="true">26.3.</strong> Sync_Atomic_Mutex</a></li><li class="chapter-item "><a href="../thread/mpsc/MPSC.html"><strong aria-hidden="true">26.4.</strong> MPSC</a></li><li class="chapter-item "><a href="../thread/time/THREAD-TIME.html"><strong aria-hidden="true">26.5.</strong> THREAD_TIME</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../time/TIME.html"><strong aria-hidden="true">27.</strong> TIME</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../tests/TESTS.html"><strong aria-hidden="true">28.</strong> TEST</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../tests/test_structures/test-structures.html"><strong aria-hidden="true">28.1.</strong> Structures</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../tests/test_structures/test_unit/test-unit.html"><strong aria-hidden="true">28.1.1.</strong> Unit</a></li><li class="chapter-item "><a href="../tests/test_structures/test_pretty/test-pretty.html"><strong aria-hidden="true">28.1.2.</strong> Pretty</a></li><li class="chapter-item "><a href="../tests/test_structures/test_proptest/test-proptest.html"><strong aria-hidden="true">28.1.3.</strong> Proptest</a></li><li class="chapter-item "><a href="../tests/test_structures/test_proptest_runner/test-proptest_runner.html"><strong aria-hidden="true">28.1.4.</strong> Proptest_runner</a></li><li class="chapter-item "><a href="../tests/test_structures/test_fixture/test-fixture.html"><strong aria-hidden="true">28.1.5.</strong> Fixture</a></li></ol></li><li class="chapter-item "><a href="../tests/tests_samples/test-samples.html"><strong aria-hidden="true">28.2.</strong> Samples</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../unsafe/UNSAFE.html"><strong aria-hidden="true">29.</strong> UNSAFE</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../unsafe/extern-ffi/EXTERN-FFI.html"><strong aria-hidden="true">29.1.</strong> EXTERN_FFI</a></li><li class="chapter-item "><a href="../unsafe/safe-abstraction/SAFE_ABSTRACTION.html"><strong aria-hidden="true">29.2.</strong> SAFE_ABSTRACTION</a></li><li class="chapter-item "><a href="../unsafe/safe-static-mut/SAFE_STATIC_MUT.html"><strong aria-hidden="true">29.3.</strong> SAFE_STATIC_MUT</a></li><li class="chapter-item "><a href="../unsafe/unsafe-thread/THREAD_UNSAFE.html"><strong aria-hidden="true">29.4.</strong> THREAD_UNSAFE</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../macro/MACRO.html"><strong aria-hidden="true">30.</strong> MACRO</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../module/MODULE.html"><strong aria-hidden="true">31.</strong> MOUDULE</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../memory/MEMORY.html" class="active"><strong aria-hidden="true">32.</strong> MEMORY</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../memory/allocator/ALLOCATOR.html"><strong aria-hidden="true">32.1.</strong> ALLOCATOR</a></li><li class="chapter-item "><a href="../memory/piston/PISTON.html"><strong aria-hidden="true">32.2.</strong> PISTON</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../idioms/IDIOMS.html"><strong aria-hidden="true">33.</strong> IDIOMS</a></li><li class="chapter-item expanded "><a href="../grammer/GRAMMER.html"><strong aria-hidden="true">34.</strong> GRAMMER</a></li><li class="chapter-item expanded "><a href="../brain-teaser/BRAIN_TREASER.html"><strong aria-hidden="true">35.</strong> BRAIN_TREASER</a></li><li class="chapter-item expanded "><a href="../questions/QUESTIONS.html"><strong aria-hidden="true">36.</strong> QUESTIONS</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../questions/triplebyte/TBYTE.html"><strong aria-hidden="true">36.1.</strong> TBYTE</a></li></ol></li><li class="chapter-item expanded "><a href="../algorithm/ALGORITHM.html"><strong aria-hidden="true">37.</strong> ALGORITHM</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rust-All-In-One(A.R)</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/arman2develop/rust-all-in-one/tree/main/workspace" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/arman2develop/rust-all-in-one/edit/main/workspace/./workspace//memory/MEMORY.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>[[PISTON]]</p>
+<p>[[types-int]]</p>
+<p>[[mr-size]]</p>
+<p>[[POINTERS]]</p>
+<hr />
+<h1 id="memory"><a class="header" href="#memory">Memory</a></h1>
+<p><img src="../rust/assets/images/mem-master1.JPG" alt="Memory" /></p>
+<ul>
+<li><strong>Text segment:</strong> This section contains the actual code to be executed in the <strong>compiled binary</strong>. The text segment is a <strong>read-only</strong> segment and any user code is forbidden to modify it. Doing so can result in a crash of the program.</li>
+<li><strong>Data segment:</strong> This is further divided into subsections, that is, the initialized data segment and uninitialized data segment, which is historically known as <strong>Block Started by Symbol (BSS)</strong>, and <strong>holds all global and static values</strong>declared in the program. Uninitialized values are initialized to zero when they are loaded into memory.</li>
+<li><strong>Stack segment:</strong> This segment is used to hold any <strong>local variables</strong> and the return addresses of functions. All resources whose <strong>sizes are known</strong> in advance and any temporary/intermediary variables that a program creates are implicitly stored on the stack.</li>
+<li><strong>Heap segment:</strong> This segment is used to store any <strong>dynamically allocated data whose size is not known up</strong> front and can change at runtime depending on the needs of the program. This is the ideal allocation place when we want values to outlive their declaration within a function.</li>
+</ul>
+<blockquote>
+<p>a process is not allowed to access the physical memory directly. Instead, it uses a virtual memory, which is mapped to the actual physical memory by the OS using an <strong>in-memory</strong> data structure called <strong>pages</strong>, which are maintained in <strong>page tables</strong>. The process has to request memory from the OS for its use, and what it gets is a virtual address that is internally mapped to a physical address in the RAM. For performance reasons, this memory is requested and processed in chunks. When virtual memory is accessed by the process,<strong>the memory management unit</strong> <em>does the actual conversion from virtual to physical memory</em>.</p>
+<p>a process from the OS is known as <strong>memory allocation</strong>. A process requests <em>a chunk of memory</em> from the OS by using system calls, and the OS marks that chunk of memory in use by that process.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>POSIX is an acronym for Portable Operating System Interface.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>A <strong>GC</strong> <em>runs as a daemon thread as part of the running program and analyzes the memory</em> that is no longer being referenced by any variable in the program and frees it automatically at certain points in time along with program execution.</p>
+</blockquote>
+<h2 id="memory-management-strategies"><a class="header" href="#memory-management-strategies">Memory Management Strategies</a></h2>
+<ul>
+<li>
+<p>Manual: C has his form of memory management, where it’s completely <strong>the programmers responsibility to put free calls</strong> after the code is done using memory. C++ automates this to some extent using smart pointers where the free call is put in a class’s deconstructor method definition.</p>
+</li>
+<li>
+<p>Automatic: Languages with this form of memory management include an additional runtime thread,that is the <strong>Garbage Collector, that runs alongside the program as a daemon thread</strong>. Most dynamic languages based on a virtual machine such Python, Java, C# and Ruby rely on automatic memory management. Automatic memory management is one of the reasons that writing code in these languages is easy.</p>
+</li>
+<li>
+<p>[[SemiAutomatic]]: Languages such as Swift fall into this category. They don’t have a dedicated GC built in as part of the runtime, but offer a reference counting type, which does automatic management of memory at a granular level <strong>Rust also provides the reference counting types Rc<T> and Arc<T>.</strong> </p>
+</li>
+</ul>
+<blockquote>
+<p>the majority of  Common Vulnerabilities &amp; Exposure (CVEs) in software related to memory management, it shows that we humans are not very good at this!</p>
+</blockquote>
+<h3 id="memory-allocator"><a class="header" href="#memory-allocator">Memory Allocator</a></h3>
+<blockquote>
+<p>the compiler <strong>rustc</strong> itself uses the <strong>jemalloc</strong> allocator, whereas the libraries and binaries that are built from Rust use the system allocator. On <strong>Linux</strong>, it would be the <strong>glibc</strong> memory allocator APIs. Jemalloc is an efficient allocator library for use in <em>multithreaded</em> environments and it greatly reduces the build time of Rust programs. While jemalloc is used by the compiler, it’s not used by any applications that are built with Rust because it increases the size of the binary. So, compiled binaries and libraries always use the system allocators by default.</p>
+</blockquote>
+<blockquote>
+<p><strong>Rust also has a pluggable allocator design</strong>, and can use the system allocator or any user implemented allocator that implements <em>the GlobalAlloc trait</em> from the std::alloc module. This is often implemented by the <em>#[[global_allocator]]</em> attribute, which can be put on any type to declare it as an allocator.
+For rare cases where you need to allocate a primitive type on the heap, you can use the Box<T> type, which is a generic smart pointer type.</p>
+</blockquote>
+<hr />
+<blockquote>
+<p><code>tags</code> [[segmentation_fault_error]] [[GlobalAlloc]]</p>
+</blockquote>
+<hr />
+<h2 id="stack"><a class="header" href="#stack">Stack</a></h2>
+<ul>
+<li>The stack actually contains two levels of objects: #stack_frame s and data.</li>
+<li>The stack grants programmers access to multiple elements stored within it, rather than the top item only.</li>
+<li>The stack can include elements of arbitrary size, where the implication of the dinner plate(exmple theory in book) analogy is that all elements must be of the same size.</li>
+</ul>
+<blockquote>
+<p>So why is the stack called the stack?
+Because of the usage pattern. Entries on the stack are made in a <strong>Last In, First Out (#LIFO) manner.</strong> The entries <strong>in the stack are called stack frames. Stack frames are created as function calls are made</strong>. As a program progresses, a cursor within the CPU updates to reflect the current address of the current stack frame. </p>
+</blockquote>
+<blockquote>
+<p>one CPU instruction: incrementing/decrementing the stack frame pointer</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>The #cursor is known as the [[stack_pointer]]. As functions are called within functions, the stack pointer decreases in value as the stack grows. When a function <strong>returns, the stack pointer increases</strong>.Stack frames contain a function’s state during the call. When a function is called within a function, the older function’s values are effectively frozen in time. Stack frames are also <strong>known as activation frames</strong>, and less commonly allocation records.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>Unlike dinner plates, <strong>every stack frame is a different size</strong>. </p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>The stack frame contains <strong>space for its function’s arguments</strong>, a pointer to the original <strong>call site, and local variables</strong> (except the data which is allocated on the heap).</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><strong>The stack’s primary role is to make space for local variables</strong>. Why is the stack fast?</p>
+<blockquote>
+<p>All of a function’s variables are <strong>side by side in memory</strong>. That speeds up access.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><strong>The stack frame pointer (esp) is a CPU register</strong> <em>that always points to the top of the stack</em>. The stack frame pointer keeps on updating as functions get called, or when they return. When a function returns, its stack frame is discarded by restoring the stack frame pointer to where it was before entering the function.</p>
+</blockquote>
+<h2 id="heap"><a class="header" href="#heap">Heap</a></h2>
+<blockquote>
+<p>The heap is an area of program memory for types that <strong>do not have known sizes at compile time</strong>. 
+What does it mean to have no known size at compile time? In Rust, there are two meanings. Some types grow and shrink over time as required. </p>
+</blockquote>
+<blockquote>
+<p>Obvious cases are <strong>String and Vec<T></strong> . Other types are unable to tell the Rust compiler how much memory to allocate even though these don’t change size at runtime. These are known as dynamically sized types. <strong>Slices</strong> ([T]) are the commonly cited example. Slices have no compile-time length. Internally, these are a pointer to some part of an array. But slices actually represent some number of elements within that array. Another example is a <strong>trait</strong> objects.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>[[RAII]] stands for Resource Acquisition Is Initialization; a paradigm suggesting that <em>resources must be acquired during initialization of objects and must be released</em> when they are deallocated or their destructors are called.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>The only way to allocate memory on the heap is through smart pointer types.</p>
+</blockquote>
+<blockquote>
+<p><strong>The heap memory</strong> is to be used with care. Values in the heap can possibly live forever during the lifetime of the program if not freed, and may eventually lead to the program being killed by <strong>the Out Of Memory (OOM) killer in the kernel</strong>. At runtime, a bug in the code or mistake from the developer can also cause the program to either forget to free the memory, or access a portion of memory that is outside the bounds of its memory layout, or dereference a memory address in the protected code segment. When this happens, the process receives a trap instruction from the kernel, which is what you see as <strong>a segmentation fault #error message</strong>, followed by the process getting aborted. As such, we must ensure that processes and their interactions with memory need to be safe! Either we as programmers need to be critically aware of our malloc and free calls or used memory safe language to handle these details for us.</p>
+</blockquote>
+<h2 id="stack-vs-heap"><a class="header" href="#stack-vs-heap">Stack Vs Heap</a></h2>
+<ul>
+<li>The stack is fast, but the heap is slow.</li>
+<li>That difference leads to the following axiom: <strong>“When in doubt, prefer the stack.”</strong> To place data onto the stack, the compiler must know the type’s size at compile time- Translated to Rust, that means, <strong>“When in doubt, use types that implement Sized.”</strong></li>
+<li>based on Memory layout image we can say <strong>Heap in-replacable</strong> space in comprasion of stack that is LIFO</li>
+</ul>
+<table><thead><tr><th>Stack</th><th>Heap</th></tr></thead><tbody>
+<tr><td>Simple</td><td>Complex</td></tr>
+<tr><td>Safe</td><td>Dangerous*</td></tr>
+<tr><td>Fast**</td><td>Slow</td></tr>
+<tr><td>Rigid</td><td>Flexible</td></tr>
+<tr><td>no cost</td><td>cost of involves dereferencing the pointer</td></tr>
+</tbody></table>
+<blockquote>
+<p>“* Not in safe Rust!”</p>
+<p>“** because a function’s local variables”</p>
+</blockquote>
+<blockquote>
+<p>The heap is less organized: when you put data on the heap, you request a certain amount of space. The memory allocator finds an empty spot in the heap that is big enough, marks it as being in use, and returns a pointer, which is the address of that location. This process is called allocating on the heap and is sometimes abbreviated as just allocating. <em>Pushing values onto the stack is not considered allocating</em>. Because the pointer to the heap is a known, fixed size, you can store the pointer on the stack, but when you want the actual data, you must follow the pointer. Think of being seated at a restaurant. When you enter, you state the number of people in your group, and the staff finds an empty table that fits everyone and leads you there. If someone in your group comes late, they can ask where you’ve been seated to find you.</p>
+</blockquote>
+<blockquote>
+<p>Pushing to the stack is faster than allocating on the heap because the allocator <strong>never has to search</strong> for a place to store new data; that location is always at the top of the stack. Comparatively, <em>allocating space on the heap requires more work, because the allocator must first find a big enough space to hold the data and then perform bookkeeping to prepare for the next allocation.</em></p>
+</blockquote>
+<h2 id="what-is-dynamic-memory-allocation"><a class="header" href="#what-is-dynamic-memory-allocation">What is dynamic memory allocation?</a></h2>
+<blockquote>
+<p>At any given time, a running program has a fixed number of bytes with which to get its work done. </p>
+<p><em>When the program would like more memory</em>, it needs to ask for more <strong>from the OS</strong>. </p>
+</blockquote>
+<blockquote>
+<p>Dynamic memory allocation is a three-step process:</p>
+</blockquote>
+<ul>
+<li>Request memory from the OS via a system call. In the UNIX family of operating systems, this system call is <strong>alloc(). In MS Windows, the call is HeapAlloc()</strong>.</li>
+<li>Make use of the allocated memory in the program.</li>
+<li>Release memory that isn’t needed back to the OS via <strong>free() for UNIX systems and HeapFree() for Windows</strong>.</li>
+</ul>
+<h2 id="memory-data-leak"><a class="header" href="#memory-data-leak">Memory Data Leak</a></h2>
+<blockquote>
+<p>Rust’s memory safety guarantees make it difficult, but not impossible, to accidentally create memory that is never cleaned up (known as a memory leak). Preventing memory leaks entirely is not one of Rust’s guarantees in the same way that disallowing data races at compile time is, meaning memory leaks are memory safe in Rust. </p>
+</blockquote>
+<blockquote>
+<p>We can see that Rust allows memory leaks by using Rc<T> and RefCell<T>: it’s possible to create references where items refer to each other in a cycle. This creates memory leaks because the reference count of each item in the cycle will never reach 0, and the values will never be dropped.</p>
+</blockquote>
+<h2 id="memory-safety"><a class="header" href="#memory-safety">Memory Safety</a></h2>
+<blockquote>
+<p>Safety: <strong>cannot point to invalid memory and remain valid in all code paths</strong>. In other words, safety basically boils down to pointers having valid references all of the time in your program, and that the operations with <strong>pointers do not lead to undefined behavior</strong> (#error). </p>
+</blockquote>
+<blockquote>
+<p>Undefined behavior is the state of a program where it has entered a situation that has not been accounted for in the compiler’s because the <strong>compiler specification does not clarify what happens in that situation</strong>.</p>
+</blockquote>
+<blockquote>
+<p>Languages based on virtual machines use garbage collection to eliminate whole classes of memory safety issues.</p>
+</blockquote>
+<blockquote>
+<p>While Rust doesn’t have a built-in GC, it relies on the same <strong>RAII</strong> built into the language and makes freeing used memory automatic for us based on the scope of variables and is much more safer than C or C++.</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>Memory safety bugs lead to memory leaks.</p>
+</blockquote>
+</blockquote>
+<h2 id="deallocating"><a class="header" href="#deallocating">Deallocating</a></h2>
+<blockquote>
+<p>Note: In C++, this pattern of <strong>deallocating resources at the end of an item’s lifetime</strong> is sometimes called Resource Acquisition Is Initialization (<strong>RAII</strong>). The drop function in Rust will be familiar to you if you’ve used RAII patterns.</p>
+</blockquote>
+<h2 id="double-free"><a class="header" href="#double-free">Double Free</a></h2>
+<blockquote>
+<p>This is a problem: when s2 and s1 (s2 is copied s1 means 2different pointer and the same data) go out of scope, they will both try to free the same memory. This is known as a #error_double_free and is one of the memory safety bugs we mentioned previously. <strong>Freeing memory twice can lead to memory corruption</strong>, which can potentially lead to security vulnerabilities.</p>
+</blockquote>
+<h2 id="memory-alignment"><a class="header" href="#memory-alignment">Memory Alignment</a></h2>
+<blockquote>
+<p>Word size: Word size means the number of bits of data processed by the microprocessor as a unit.</p>
+</blockquote>
+<blockquote>
+<p>Memory access <strong>granularity</strong>: The minimum <strong>chunk</strong> of data accessed by the CPU from the <strong>memory bus</strong> is called the memory access granularity.</p>
+</blockquote>
+<blockquote>
+<p>Data types in all programming languages have both a size and an alignment. <strong>The alignment of primitive types is equal to their size</strong>. So, usually, all primitive types are aligned and the CPU has no problem doing an aligned read for these. But when we create custom data types, compilers usually insert <em>padding</em> between our struct fields if they are not aligned to allow the CPU to access memory in an aligned manner.</p>
+</blockquote>
+<h2 id="unrolling"><a class="header" href="#unrolling">UnRolling</a></h2>
+<p>// is an optimization that removes the overhead of the loop controlling code and instead generates repetitive code for each iteration of the loop.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let buffer: &amp;mut [i32];
+let coefficients: [i64; 12];
+let qlp_shift: i16;
+
+for i in 12..buffer.len() {
+    let prediction = coefficients.iter()
+                                 .zip(&amp;buffer[i - 12..i])
+                                 .map(|(&amp;c, &amp;s)| c * s as i64)
+                                 .sum::&lt;i64&gt;() &gt;&gt; qlp_shift;
+    let delta = buffer[i];
+    buffer[i] = prediction as i32 + delta;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="glossery"><a class="header" href="#glossery">Glossery</a></h2>
+<blockquote>
+<p><code>stack</code> : contiguous layout memory = LIFO</p>
+</blockquote>
+<blockquote>
+<p><code>tags</code> [[memory_leak]] [[safety]] [[LIFO]]</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../module/MODULE.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../memory/allocator/ALLOCATOR.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../module/MODULE.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../memory/allocator/ALLOCATOR.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_line_numbers = true;
+        </script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

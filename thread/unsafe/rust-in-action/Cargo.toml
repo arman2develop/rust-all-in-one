@@ -1,0 +1,13 @@
+[package]
+name = "rust-in-action-thread-unsafe_bin"
+version = "0.1.0"
+edition = "2021"
+autobins = true
+
+[dependencies]
+rand="0.7.0"
+
+[[bin]]
+doc = true
+name = "rust-in-action-thread-unsafe-main"
+path = "src/rust-in-action-thread-unsafe-main.rs"
